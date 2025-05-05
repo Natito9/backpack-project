@@ -8,11 +8,13 @@ import Contact from "@/components/contact/contact";
 
 export default function Home() {
   return (
-<>
-<Navbar/>
-<Hero/>
-<Mission/>
-<Features />
-<Contact />
-<Footer/>
-</>
+    <>
+    <Navbar/>
+    <Hero/>
+    <Mission/>
+    <Features />
+    <Contact />
+    <Footer/>
+    </>
+  )
+}
