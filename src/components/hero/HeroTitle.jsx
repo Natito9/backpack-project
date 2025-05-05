@@ -1,7 +1,7 @@
 export default function HeroTitle() {
     return (
-        <div className="max-w-[500px] w-[50%] justify-items-start px-6 py-6">
-        <h1 className="text-6xl">
+        <div className="max-w-[500px] md:w-[50%] justify-items-start ">
+        <h1 className="text-5xl md:text-6xl">
           Helping Kids Understand Feelings - With Emmo!
         </h1>
         <p className="text-[#4B5563] py-9">
