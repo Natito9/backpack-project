@@ -8,19 +8,13 @@ import Contact from "@/components/contact/contact";
 
 export default function Home() {
   return (
-<>
-<Navbar/>
-<Hero/>
-<Mission/>
-<<<<<<< HEAD
-<MeetEmmo/>
-</>
-
-  );
+    <>
+    <Navbar/>
+    <Hero/>
+    <Mission/>
+    <Features />
+    <Contact />
+    <Footer/>
+    </>
+  )
 }
-=======
-<Features />
-<Contact />
-<Footer/>
-</>
->>>>>>> main
