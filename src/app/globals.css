@@ -3,7 +3,37 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* typography */
+  --title-font-family: 'Quicksand', sans-serif;
+  --title-font-size: 60px;
+  --title-line-height: 60px;
+
+  --content-font-family: 'Quicksand', sans-serif;
+  --content-font-size: 20px;
+  --content-line-height: 20px;
+
+  --placeholder-font-family: 'Quicksand', sans-serif;
+  --placeholder-font-size: 16px;
+
+  --subtitle-font-family: 'Quicksand', sans-serif;
+  --subtitle-font-size: 36px;
+  --subtitle-line-height: 36px;
+
+  --button-font-family: 'Quicksand', sans-serif;
+  --button-font-size: 16px;
+
+  --navbar-font-family: 'Quicksand', sans-serif;
+  --navbar-font-size: 16px;
+  --navbar-line-height: 16px;
+
+  /* colors */
+  --main-color: #7c3aed;
+  --bg-color: #e5e7eb;
+  --footer-bg-color: #f9fafb;
 }
+
+
 
 @theme inline {
   --color-background: var(--background);
@@ -22,5 +52,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, var(--content-font-family);
 }
