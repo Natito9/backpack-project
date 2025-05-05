@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Quicksand } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
