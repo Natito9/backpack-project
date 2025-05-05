@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 const quicksand = Quicksand({
-  weight: "400",
+  weight: ["400"],
   variable: "--font-quicksand",
   subsets: ["latin"],
-})
+});
 
 export const metadata = {
   title: "Create Next App",
