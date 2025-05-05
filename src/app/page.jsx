@@ -1,6 +1,7 @@
 import Hero from "@/components/hero/Hero";
 import Mission from "@/components/mission/Mission";
 import MeetEmmo from "@/components/meetEmmo/MeetEmmo";
+import Features from "@/components/features/features";
 import Contact from "@/components/contact/contact";
 
 export default function Home() {
@@ -8,7 +9,9 @@ export default function Home() {
     <>
       <Hero />
       <Mission />
+      <Features />
       <Contact />
+
     </>
   );
 }
