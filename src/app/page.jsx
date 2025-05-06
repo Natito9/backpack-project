@@ -6,18 +6,22 @@ import Footer from "@/components/Footer/Footer";
 import Features from "@/components/features/features";
 import Waitlist from "@/components/waitlist/waitlist";
 import Contact from "@/components/contact/contact";
+import CostumeHead from "@/components/head/CoustumeHead";
 
 export default function Home() {
   return (
     <>
+    <CostumeHead />
+    <main>
     <Navbar/>
     <Hero/>
     <Mission/>
     <Features />
-    {/* <MeetEmmo /> */}
+    <MeetEmmo />
     <Waitlist />
-    {/* <Contact /> */}
+    <Contact />
     <Footer/>
+    </main>
     </>
   )
 }
