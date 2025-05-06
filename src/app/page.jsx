@@ -14,8 +14,9 @@ export default function Home() {
     <Hero/>
     <Mission/>
     <Features />
+    {/* <MeetEmmo /> */}
     <Waitlist />
-    <Contact />
+    {/* <Contact /> */}
     <Footer/>
     </>
   )
