@@ -4,6 +4,7 @@ import MeetEmmo from "@/components/meetEmmo/MeetEmmo";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Features from "@/components/features/features";
+import Waitlist from "@/components/waitlist/waitlist";
 import Contact from "@/components/contact/contact";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     <Hero/>
     <Mission/>
     <Features />
+    <Waitlist />
     <Contact />
     <Footer/>
     </>
