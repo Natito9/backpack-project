@@ -11,7 +11,7 @@ export default function HeroText() {
           type="text"
           placeholder="Enter your email"
           alt="email input"
-          className="text-[#ADAEBC] rounded-full border-1 border-(--bg-color) bg-white h-12 mr-4 pl-6"
+          className="text-[#ADAEBC] rounded-full border-1 border-(--bg-color) bg-white h-12 mr-4 pl-6 mb-4"
         ></input>
         <button className="bg-(--main-color) w-32 h-12 rounded-full text-white">
           Join Now
