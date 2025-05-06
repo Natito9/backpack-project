@@ -22,17 +22,18 @@ export default function Waitlist() {
           has the tools to understand and express their emotions.
         </p>
         <form className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full sm:w-[300px] px-6 py-2 rounded-full bg-white text-black 
+  
+        <input
+  type="email"
+  placeholder="Enter your email"
+  className="w-full sm:w-[300px] px-6 py-1.5 rounded-full bg-white text-black 
     placeholder:text-gray-400 font-placeholder text-base shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[--main-color]"
-            style={{
-              fontFamily: "var(--placeholder-font-family)",
-              fontSize: "var(--placeholder-font-size)",
-            }}
-            required
-          />
+  style={{
+    fontFamily: 'var(--placeholder-font-family)',
+    fontSize: 'var(--placeholder-font-size)',
+  }}
+  required
+/>
 
           <button
             type="submit"
