@@ -2,31 +2,29 @@ import Image from "next/image";
 
 export default function Contact() {
   return (
-    <section className="w-[1440px] h-[588px] mx-auto flex justify-center items-start relative px-4">
-      <div className="w-[1280px] h-[428px] flex flex-col items-center relative">
-        <div className="w-[768px] h-[428px] relative">
-          {/* Title */}
-          <div className="absolute top-[-3px] left-[277.61px] w-[205px] h-[45px] flex items-center justify-center">
+    <section className="w-full max-w-[1440px] mx-auto flex justify-center items-start relative px-4 py-8">
+      <div className="w-full max-w-[1280px] flex flex-col items-center relative">
+        <div className="w-full max-w-[768px] relative">
+          <div className="w-full flex justify-center mb-6">
             <h2 className="text-(length:--subtitle-font-size) leading-subtitle font-(family-name:--subtitle-font-family)">
               Get in Touch
             </h2>
           </div>
 
-          {/* Form */}
-          <form className="absolute top-[88px] w-[768px] h-[268px] flex flex-col gap-[24px]">
-            <div className="w-full h-[50px] flex gap-[24px]">
+          <form className="w-full flex flex-col gap-6">
+            <div className="w-full flex flex-col md:flex-row gap-6">
               <input
                 type="text"
                 placeholder="Name"
-                className="w-[372px] h-full px-4 border border-gray-300 rounded-[8px] 
-                  font-placeholder text-placeholder placeholder:font-placeholder placeholder:text-placeholder 
+                className="flex-1 min-h-[50px] px-4 py-2 border border-gray-300 rounded-[8px] 
+                  font-placeholder text-placeholder text-base placeholder:font-placeholder placeholder:text-placeholder 
                   focus:outline-none focus:ring-2 focus:ring-[var(--main-color)]"
               />
               <input
                 type="email"
                 placeholder="Email"
-                className="w-[372px] h-full px-4 border border-gray-300 rounded-[8px] 
-                  font-placeholder text-placeholder placeholder:font-placeholder placeholder:text-placeholder 
+                className="flex-1 min-h-[50px] px-4 py-2 border border-gray-300 rounded-[8px] 
+                  font-placeholder text-placeholder text-base placeholder:font-placeholder placeholder:text-placeholder 
                   focus:outline-none focus:ring-2 focus:ring-[var(--main-color)]"
               />
             </div>
@@ -34,11 +32,10 @@ export default function Contact() {
             <textarea
               placeholder="Message"
               className="w-full h-[122px] px-4 py-2 border border-gray-300 rounded-[8px] resize-none 
-                font-placeholder text-placeholder placeholder:font-placeholder placeholder:text-placeholder 
+                font-placeholder text-placeholder text-base placeholder:font-placeholder placeholder:text-placeholder 
                 focus:outline-none focus:ring-2 focus:ring-[var(--main-color)]"
             ></textarea>
 
-            {/* Submit Button */}
             <div className="w-full h-[48px]">
               <button
                 className="w-full h-full rounded-full bg-[var(--main-color)] text-white 
@@ -49,8 +46,7 @@ export default function Contact() {
             </div>
           </form>
 
-          {/* Social Icons */}
-          <div className="absolute top-[404px] w-[768px] h-[24px] flex justify-center items-center gap-6">
+          <div className="mt-6 w-full flex justify-center items-center gap-6">
             <Image
               src="/assets/images/Twitter.png"
               alt="Twitter"
