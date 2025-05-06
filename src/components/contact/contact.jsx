@@ -7,9 +7,9 @@ export default function Contact() {
         <div className="w-[768px] h-[428px] relative">
           {/* Title */}
           <div className="absolute top-[-3px] left-[277.61px] w-[205px] h-[45px] flex items-center justify-center">
-            <h1 className="font-subtitle text-subtitle leading-subtitle text-center">
+            <h2 className="text-(length:--subtitle-font-size) leading-subtitle font-(family-name:--subtitle-font-family)">
               Get in Touch
-            </h1>
+            </h2>
           </div>
 
           {/* Form */}
