@@ -25,7 +25,7 @@ export default function Waitlist() {
         <input
   type="email"
   placeholder="Enter your email"
-  className="w-full sm:w-[300px] px-6 py-2 rounded-full bg-white text-black 
+  className="w-full sm:w-[300px] px-6 py-1.5 rounded-full bg-white text-black 
     placeholder:text-gray-400 font-placeholder text-base shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[--main-color]"
   style={{
     fontFamily: 'var(--placeholder-font-family)',
@@ -38,7 +38,7 @@ export default function Waitlist() {
  
 <button
   type="submit"
-  className="px-8 py-2 rounded-full bg-white font-semibold border border-[--main-color] shadow-sm text-base"
+  className="px-8 py-1.5 rounded-full bg-white font-semibold border border-[--main-color] shadow-sm text-base"
   style={{
     color: 'var(--main-color)',
     fontFamily: 'var(--button-font-family)',
