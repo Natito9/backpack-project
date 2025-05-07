@@ -1,18 +1,22 @@
 import Image from "next/image";
-import HeroTitle from "./HeroTitle";
+import HeroText from "./HeroText";
 
 export default function HeroSection() {
   return (
-    <section className=" md:h-auto bg-[#f1f5ff] text-black flex flex-col  md:flex-row justify-between  px-5 md:pl-20 md:pt-30 md:pr-40 md:pb-10">
-      <HeroTitle/>
-      <div className="w-[300px] md:w-[500px]">
+    <section className=" md:h-auto bg-(--bg-color) flex justify-center">
+      <div className="max-w-[1440px] flex flex-col  md:flex-row justify-between px-5 py-10 md:pl-20 md:py-30 "> 
+      <HeroText/>
+      <div className="flex justify-center items-center pt-10">
+      <div className="w-52 md:w-[500px] ">
         <Image
-          className="md:w-[500px] h-auto"
+          className="h-auto "
           src="/assets/images/hero.png"
           alt="Emmo character"
-          width={500}
-          height={500}
+          width={400}
+          height={400}
         />
+      </div>
+      </div>
       </div>
     </section>
   );
