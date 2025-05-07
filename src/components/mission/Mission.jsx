@@ -11,7 +11,7 @@ export default function Mission() {
       </p>
       <div className="flex items-center justify-center gap-4 md:gap-20">
         <div className="flex flex-col items-center">
-          <div className=" w-[80px] h-[80px] rounded-full bg-(--bg-color) flex justify-center items-center">
+          <div className=" w-20 h-20 rounded-full bg-(--bg-color) flex justify-center items-center">
             <Image
               className="md:w-[30px] h-auto"
               src="/assets/icons/mission1.png"
@@ -23,7 +23,7 @@ export default function Mission() {
           <p className="pt-5 text-center">Safe Space</p>
         </div>
         <div className="flex flex-col items-center">
-          <div className=" w-[80px] h-[80px] rounded-full bg-(--bg-color) flex justify-center items-center">
+          <div className=" w-20 h-20 rounded-full bg-(--bg-color) flex justify-center items-center">
             <Image
               className="md:w-[30px] h-auto"
               src="/assets/icons/mission2.png"
@@ -36,9 +36,9 @@ export default function Mission() {
         </div>
 
         <div className="flex flex-col items-center">
-          <div className=" w-[80px] h-[80px] rounded-full bg-(--bg-color) flex justify-center items-center">
+          <div className=" w-20 h-20 rounded-full bg-(--bg-color) flex justify-center items-center">
             <Image
-              className="w-[40px] h-auto"
+              className="w-10 h-auto"
               src="/assets/icons/mission3.png"
               alt="Console remote icon"
               width={30}
