@@ -11,26 +11,23 @@ export default function Mission() {
       </p>
       <p className="text-center pb-12">Our mission is to have Backpack become that helping hand.</p>
       <div className="flex items-center justify-center gap-10 md:gap-20">
+
         <div className="flex flex-col items-center">
- 
-            <Image
-              className="w-auto h-auto"
-              src="/assets/icons/Icon_48x_HealthyChoices.png"
-              alt="Heart icon"
-              width={70}
-              height={70}
-            />
+          <Image
+            src="/assets/icons/Icon_48x_HealthyChoices.png"
+            alt="Heart icon"
+            width={48}
+            height={48}
+          />
           <p className="pt-5 text-center">Healthy</p>
         </div>
         <div className="flex flex-col items-center">
       
             <Image
-              className="m-auto h-auto"
               src="/assets/icons/Icon_48x_Boundaries.png"
               alt="Brain icon"
               width={48}
-              height={48
-              }
+              height={48}
             />
       
           <p className="pt-5 text-center">Bounderies</p>
@@ -39,11 +36,10 @@ export default function Mission() {
         <div className="flex flex-col items-center">
    
             <Image
-              className="w-auto h-auto"
               src="/assets/icons/Icon_48x_Support.png"
               alt="Console remote icon"
-              width={70}
-              height={70}
+              width={48}
+              height={48}
             />
        
           <p className="pt-5 text-center">Support</p>
