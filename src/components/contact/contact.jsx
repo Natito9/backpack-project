@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Contact() {
   return (
-    <section className="w-full max-w-screen-xl mx-auto flex justify-center items-start relative px-4 py-8">
+    <section
+      id="contact"
+      className="w-full max-w-screen-xl mx-auto flex justify-center items-start relative px-4 py-8"
+    >
       <div className="w-full max-w-7xl flex flex-col items-center relative">
         <div className="w-full max-w-2xl relative">
           <div className="w-full flex justify-center mb-6">
