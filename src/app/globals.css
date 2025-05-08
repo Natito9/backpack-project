@@ -5,9 +5,9 @@
   
 
   /* typography */
-  --content-font-family: "Quicksand", sans-serif;
-  --title-font-family: "Quicksand", sans-serif;
-  --subtitle-font-family: "Quicksand", sans-serif;
+  --content-font-family: "noto-sans", sans-serif;
+  --title-font-family: "noto-sans", sans-serif;
+  --subtitle-font-family: "noto-sans", sans-serif;
   
   --title-font-size: 60px;
   --title-line-height: 60px;
@@ -26,13 +26,9 @@
   --navbar-line-height: 16px;
 
   /* colors */
-  --main-color: #7c3aed;
-  --bg-color: #e5e7eb;
-  --footer-bg-color: #f9fafb;
-  --tag-color: #ede9fe;
+  --main-color: #e4f4f2;
+  --bg-color: #ffffff;
+  --text-color: #131313;
 }
 
-body {
-  font-family: var(--content-font-family), sans-serif;
-}
 
