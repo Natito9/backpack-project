@@ -2,7 +2,8 @@ import React from "react";
 
 export default function Waitlist() {
   return (
-    <section
+    <section 
+    id="waitlist"
       style={{ backgroundColor: "var(--main-color)" }}
       className="text-white py-20 text-center"
     >
