@@ -9,15 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'main': '#7c3aed',
-        'background': '#e5e7eb',
-        'footer': '#f9fafb',
-        'tag': 'var(--tag-color)',
+        'main': '#e4f4f2',
+        'background': '#ffffff',
       },
       fontFamily: {
-        'content': ['Quicksand', 'sans-serif'],
-        'title': ['Quicksand', 'sans-serif'],
-        'subtitle': ['Quicksand', 'sans-serif'],
+        'content': ['var(--content-font-family)'],
+        'title': ['var(--title-font-family)'],
+        'subtitle': ['var(--subtitle-font-family)'],
       },
       fontSize: {
         'title': '60px',
