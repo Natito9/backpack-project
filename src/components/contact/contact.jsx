@@ -66,24 +66,30 @@ export default function Contact() {
           </form>
 
           <div className="mt-6 w-full flex justify-center items-center gap-6">
-            <Image
-              src="/assets/images/Twitter.png"
-              alt="Twitter"
-              width={24}
-              height={24}
-            />
-            <Image
-              src="/assets/images/Instagram.png"
-              alt="Instagram"
-              width={21}
-              height={24}
-            />
-            <Image
-              src="/assets/images/Discord.png"
-              alt="Discord"
-              width={30}
-              height={24}
-            />
+            <a
+              href="https://www.facebook.com/share/1G5grnnT1t/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/assets/images/Facebook.png"
+                alt="Facebook"
+                width={25}
+                height={25}
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/backpackstudiosofficial?igsh=MXV5dDVhZGQwMm9yNQ%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/assets/images/Instagram.png"
+                alt="Instagram"
+                width={21}
+                height={24}
+              />
+            </a>
           </div>
         </div>
       </div>
