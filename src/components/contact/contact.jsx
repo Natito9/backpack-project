@@ -10,7 +10,7 @@ export default function Contact() {
         <div className="w-full max-w-2xl relative">
           <div className="w-full flex justify-center mb-6">
             <h2 className="text-(length:--subtitle-font-size) leading-subtitle font-(family-name:--subtitle-font-family)">
-              Get in Touch
+              Get in Touch !
             </h2>
           </div>
 
