@@ -7,7 +7,7 @@ import FactCards from "./FactCards";
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true)
   return (
-    <section className="relative  h-screen max-[500px] md:h-[90vh] w-full">
+    <section id="hero" className="relative  h-screen max-[500px] md:h-[90vh] w-full">
       <Image
         src="/assets/images/hero-background.jpg"
         alt="Background"
