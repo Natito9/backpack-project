@@ -7,10 +7,12 @@ import Features from "@/components/features/features";
 import Waitlist from "@/components/waitlist/waitlist";
 import Contact from "@/components/contact/contact";
 import CostumeHead from "@/components/head/CoustumeHead";
+import LandingPage from "@/components/landingPage/langingPage";
 
 export default function Home() {
   return (
     <>
+    <LandingPage/>
     <CostumeHead />
     <main>
     <Navbar/>
