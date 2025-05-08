@@ -1,11 +1,11 @@
-import { Quicksand } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 
-const quicksand = Quicksand({
+const notoSans = Noto_Sans({
   weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-quicksand",
+  variable: "--font-noto-sans",
 });
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${quicksand.variable}`}
+        className={`${notoSans.variable}`}
       >
         {children}
       </body>
