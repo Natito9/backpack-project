@@ -7,7 +7,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="bg-violet-100 font-content mx-auto flex flex-col items-center justify-center py-10  gap-10"
+      className="bg-violet-100  mx-auto flex flex-col items-center justify-center py-10  gap-10"
     >
       <h2 className="text-(length:--subtitle-font-size)">How Backpack Works</h2>
       <div className="flex flex-col lg:flex-row  items-center justify-center align-center ">
@@ -22,7 +22,7 @@ export default function Features() {
             />
             <div>
               <h3 className="text-xl">Engage early</h3>
-              <p className="text-gray-600 text-content ">
+              <p className="text-gray-600  ">
                 Backpack is an app best suited for children aged 7-10 and is
                 meant to be implemented on their first phone.
               </p>
@@ -38,7 +38,7 @@ export default function Features() {
             />
             <div>
               <h3 className="text-xl">Personalised mascot</h3>
-              <p className="text-gray-600 text-content">
+              <p className="text-gray-600">
                 The star of the app is a personalised mascot named Emmo, who
                 supports the child in real-time on the phone.
               </p>
@@ -54,7 +54,7 @@ export default function Features() {
             />
             <div>
               <h3 className="text-xl">Stay on track</h3>
-              <p className="text-gray-600 text-content">
+              <p className="text-gray-600">
                 Emmo specializes in micro-interventions, nudging, emotional
                 maturity, building self awareness, and maintaining boundaries.
               </p>
@@ -70,7 +70,7 @@ export default function Features() {
             />
             <div>
               <h3 className="text-xl">Invite play</h3>
-              <p className="text-gray-600 text-content">
+              <p className="text-gray-600">
                 Emmo can suggest fun activities to do in the physical world,
                 actively shifting focus from the screen to
               </p>
@@ -86,7 +86,7 @@ export default function Features() {
             />
             <div>
               <h3 className="text-xl">Grow closer</h3>
-              <p className="text-gray-600 text-content">
+              <p className="text-gray-600">
                 Additionally, Emmo creates a communicative bridge between parent
                 and child, keeping the parent up to date with overall screen
                 habits.
@@ -94,7 +94,7 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <div className=" flex relative justify-center items-center align-center  ">
+        <div className=" flex relative justify-center items-center align-center ">
           <Image
             width={700}
             height={700}
