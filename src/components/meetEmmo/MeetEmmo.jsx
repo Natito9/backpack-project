@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const MeetEmmo = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto py-16 px-4 gap-8">
+    <section id='emmo' className="flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto py-16 px-4 gap-8">
       {/* Image card */}
       <div className="bg-[#2E2B2B] rounded-3xl overflow-hidden shadow-lg md:w-1/3 flex items-center justify-center p-8">
         <Image 
@@ -39,7 +39,7 @@ const MeetEmmo = () => {
           </span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
