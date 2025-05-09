@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "add": "^2.0.6",
     "lucide-react": "^0.507.0",
     "next": "15.3.1",
