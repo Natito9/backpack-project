@@ -13,6 +13,14 @@ export default function FactCards({ onDone }) {
     rotate: Math.random() * 90 - 45
   }))
 
+  const cardColors = [
+    { bg: "#FFD6E0", text: "#FF4081" }, // pink
+    { bg: "#C5F0A4", text: "#4CAF50" }, // green
+    { bg: "#BBE0FF", text: "#1976D2" }, // blue
+    { bg: "#FFF3C4", text: "#FF9800" }, // orange
+    { bg: "#E2C6FF", text: "#7B1FA2" }  // purple
+  ]
+
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setPhase('show')
@@ -126,7 +134,14 @@ export default function FactCards({ onDone }) {
 
               {/* number */}
               <div className="relative z-10 flex flex-col items-center justify-center px-4">
-                <div className="text-5xl md:text-6xl">
+                <div 
+                  className="text-5xl md:text-6xl"
+                  style={{
+                    color: cardColors[i % cardColors.length].text,
+                    fontFamily: '"Comic Sans MS", "Bubblegum Sans", cursive',
+                    textShadow: '2px 2px 4px rgba(255,255,255,0.8)'
+                  }}
+                >
                   {isCountingUp && fact.number.match(/^\d+$/) ? (
                     <CountUp 
                       end={parseInt(fact.number)}
@@ -137,7 +152,13 @@ export default function FactCards({ onDone }) {
                     fact.number
                   )}
                 </div>
-                <div className="text-xl md:text-2xl mt-1">
+                <div 
+                  className="text-xl md:text-2xl mt-1"
+                  style={{
+                    color: cardColors[i % cardColors.length].text,
+                    fontFamily: '"Comic Sans MS", "Bubblegum Sans", cursive',
+                  }}
+                >
                   {fact.unit}
                 </div>
               </div>
