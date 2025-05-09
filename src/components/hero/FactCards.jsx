@@ -10,24 +10,24 @@ export default function FactCards({ onDone }) {
       setPhase('show')
     }, 500)
 
-    const expandStartTimer = setTimeout(() => {
-      setPhase('expanding')
-    }, 3000)
+    // const expandStartTimer = setTimeout(() => {
+    //   setPhase('expanding')
+    // }, 3000)
 
     const expandedTimer = setTimeout(() => {
       setPhase('expanded')
-    }, 4000)
+    }, 2000)
 
     const endTimer = setTimeout(() => {
       setPhase('done')
       if (onDone) {
         onDone()
       }
-    }, 5500)
+    }, 4500)
 
     return () => {
       clearTimeout(showTimer)
-      clearTimeout(expandStartTimer)
+      // clearTimeout(expandStartTimer)
       clearTimeout(expandedTimer)
       clearTimeout(endTimer)
     }
@@ -70,9 +70,10 @@ export default function FactCards({ onDone }) {
             <div
               key={i}
               className={`
-                absolute left-1/2 top-1/2 w-[20vw] h-[20vw] min-w-[100px] min-h-[100px] max-w-[200px] max-h-[200px]
+                absolute left-1/2 top-1/2 
+                w-[25vw] h-[25vw] min-w-[150px] min-h-[150px] max-w-[250px] max-h-[250px]
                 flex items-center justify-center text-center rounded-full bg-white text-black
-                font-bold text-2xl md:text-3xl
+                font-bold text-2xl md:text-4xl
                 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
                 ${!isVisible ? 'opacity-0 scale-50' : 'opacity-100 scale-100'}
                 ${isFloating ? 'animate__animated animate__pulse animate__infinite' : ''}
