@@ -28,16 +28,6 @@ module.exports = {
         content: "20px",
         subtitle: "36px",
       },
-
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(-50%) translateY(0)" },
-          "50%": { transform: "translateY(-50%) translateY(-20px)" },
-        },
-      },
-      animation: {
-        float: "float 3s ease-in-out infinite",
-      },
     },
   },
   plugins: [],
