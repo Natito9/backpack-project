@@ -17,6 +17,7 @@
     "nodemailer": "^7.0.3",
     "or": "^0.2.0",
     "react": "^19.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "yarn": "^1.22.22"
   },

@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 import 'animate.css'
+import Image from 'next/image'
+import CountUp from 'react-countup'
 
 export default function FactCards({ onDone }) {
   const [phase, setPhase] = useState('hidden')
@@ -9,10 +11,6 @@ export default function FactCards({ onDone }) {
     const showTimer = setTimeout(() => {
       setPhase('show')
     }, 500)
-
-    // const expandStartTimer = setTimeout(() => {
-    //   setPhase('expanding')
-    // }, 3000)
 
     const expandedTimer = setTimeout(() => {
       setPhase('expanded')
@@ -23,17 +21,22 @@ export default function FactCards({ onDone }) {
       if (onDone) {
         onDone()
       }
-    }, 4500)
+    }, 5500)
 
     return () => {
       clearTimeout(showTimer)
-      // clearTimeout(expandStartTimer)
       clearTimeout(expandedTimer)
       clearTimeout(endTimer)
     }
   }, [onDone])
 
-  const facts = ['1/4 year', '3 months', '13 weeks', '92 days', '2 200h']
+  const facts = [
+    {number:'1/4', unit: 'year'}, 
+    {number:'3', unit: 'months'}, 
+    {number:'13', unit: 'weeks'}, 
+    {number:'92', unit: 'days'}, 
+    {number:'2200', unit: 'hours'}
+  ]
 
   return (
     <div className="absolute inset-0 flex items-center justify-center">
@@ -42,8 +45,9 @@ export default function FactCards({ onDone }) {
           const isCenterCard = i === Math.floor(facts.length / 2 )
 
           const isVisible = phase !== 'hidden'
-          const isFloating =phase === 'floating' && isCenterCard
+          const isFloating = phase === 'floating' && isCenterCard
           const isExpanding = phase === 'expanding' || phase === 'expanded' || phase === 'done'
+          const isCountingUp = phase === 'expanded' || phase === 'done'
 
           let left = '50%'
           let translateX = '-50%'
@@ -55,12 +59,12 @@ export default function FactCards({ onDone }) {
               left = '50%'
             } else if (i < Math.floor(facts.length / 2)) {
               // left card
-              const spacing = 20 
+              const spacing = 18 
               const position = Math.floor(facts.length / 2) - i
               left = `${50 - (position * spacing * progress)}%`
             } else {
               // rightside card
-              const spacing = 20 
+              const spacing = 18 
               const position = i - Math.floor(facts.length / 2)
               left = `${50 + (position * spacing * progress)}%`
             }
@@ -71,13 +75,13 @@ export default function FactCards({ onDone }) {
               key={i}
               className={`
                 absolute left-1/2 top-1/2 
-                w-[25vw] h-[25vw] min-w-[150px] min-h-[150px] max-w-[250px] max-h-[250px]
-                flex items-center justify-center text-center rounded-full bg-white text-black
+                w-[28vw] h-[28vw] min-w-[180px] min-h-[180px] max-w-[300px] max-h-[300px]
+                flex flex-col items-center justify-center text-center rounded-full text-black bg-white
                 font-bold text-2xl md:text-4xl
                 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
                 ${!isVisible ? 'opacity-0 scale-50' : 'opacity-100 scale-100'}
                 ${isFloating ? 'animate__animated animate__pulse animate__infinite' : ''}
-                shadow-lg
+                shadow-lg overflow-hidden
               `}
               style={{
                 left,
@@ -86,12 +90,37 @@ export default function FactCards({ onDone }) {
                 transitionDelay: isExpanding ? `${Math.abs(Math.floor(facts.length / 2) - i) * 120}ms` : '0ms',
               }}
             >
-              {fact}
+              {/* background */}
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  src='/assets/images/BACKGROUND_WEBSITE_POLY.png'
+                  alt='Polygon background'
+                  fill
+                  className='ibject-cover'
+                />
+              </div>
+
+              {/* number */}
+              <div className="realative z-10 flex flex-col items-center justify-center px-4">
+                <div className="text-5xl md:text-6xl">
+                  {isCountingUp && fact.number.match(/^\d+$/) ? (
+                    <CountUp 
+                      end={parseInt(fact.number)}
+                      duration={2.2}
+                      separator=' '
+                    />
+                  ) : (
+                    fact.number
+                  )}
+                </div>
+                <div className="text-xl md:text-2xl mt-1">
+                  {fact.unit}
+                </div>
+              </div>
             </div>
           )
         })}        
       </div>
-
     </div>
   )
 }
