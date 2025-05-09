@@ -64,6 +64,7 @@ export default function FactCards({ onDone }) {
           const isCenterCard = i === Math.floor(facts.length / 2 )
 
           const isVisible = phase !== 'hidden'
+          const isFloating = phase === 'show' && isCenterCard
           const isExpanding = phase === 'expanding' || phase === 'expanded' || phase === 'done'
           const isCountingUp = phase === 'expanded' || phase === 'flyaway' || phase === 'done'
           const isFlyingAway = phase === 'flyaway' || phase === 'done'
