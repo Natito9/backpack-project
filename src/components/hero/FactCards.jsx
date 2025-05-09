@@ -7,6 +7,12 @@ import CountUp from 'react-countup'
 export default function FactCards({ onDone }) {
   const [phase, setPhase] = useState('hidden')
 
+  const flyDirections = Array(5).fill().map(() => ({
+    x: Math.random() * 200 -100,
+    y: Math.random() * 150 -50,
+    rotate: Math.random() * 90 - 45
+  }))
+
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setPhase('show')
@@ -16,16 +22,21 @@ export default function FactCards({ onDone }) {
       setPhase('expanded')
     }, 2000)
 
+    const flyAwayTimer = setTimeout(() => {
+      setPhase('flyaway')
+    }, 5000)
+
     const endTimer = setTimeout(() => {
       setPhase('done')
       if (onDone) {
         onDone()
       }
-    }, 5500)
+    }, 6500)
 
     return () => {
       clearTimeout(showTimer)
       clearTimeout(expandedTimer)
+      clearTimeout(flyAwayTimer)
       clearTimeout(endTimer)
     }
   }, [onDone])
@@ -47,7 +58,8 @@ export default function FactCards({ onDone }) {
           const isVisible = phase !== 'hidden'
           const isFloating = phase === 'floating' && isCenterCard
           const isExpanding = phase === 'expanding' || phase === 'expanded' || phase === 'done'
-          const isCountingUp = phase === 'expanded' || phase === 'done'
+          const isCountingUp = phase === 'expanded' || phase === 'flyaway' || phase === 'done'
+          const isFlyingAway = phase === 'flyaway' || phase === 'done'
 
           let left = '50%'
           let translateX = '-50%'
@@ -70,6 +82,16 @@ export default function FactCards({ onDone }) {
             }
           }
 
+          const flyStyle = isFlyingAway ? {
+            transform: `
+              translateX(calc(-50% + ${flyDirections[i].x}vw))
+              translateY(calc(-50% + ${flyDirections[i].y}vh))
+              rotate(${flyDirections[i].rotate}deg)
+            `,
+            opacity: 0,
+            transition: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease-out'
+          } : {};
+
           return (
             <div
               key={i}
@@ -85,9 +107,11 @@ export default function FactCards({ onDone }) {
               `}
               style={{
                 left,
-                transform: `translateX(-50%) translateY(-50%)`,
+                transform: !isFlyingAway ? `translateX(-50%) translateY(-50%)` : undefined,
                 zIndex: isCenterCard ? 10 : 5 - Math.abs(Math.floor(facts.length / 2) - i),
-                transitionDelay: isExpanding ? `${Math.abs(Math.floor(facts.length / 2) - i) * 120}ms` : '0ms',
+                transitionDelay: isExpanding && !isFlyingAway ? `${Math.abs(Math.floor(facts.length / 2) - i) * 120}ms` : 
+                `${i * 100}ms`, // delay for the fly away animation
+                ...flyStyle
               }}
             >
               {/* background */}
@@ -96,12 +120,12 @@ export default function FactCards({ onDone }) {
                   src='/assets/images/BACKGROUND_WEBSITE_POLY.png'
                   alt='Polygon background'
                   fill
-                  className='ibject-cover'
+                  className='object-cover'
                 />
               </div>
 
               {/* number */}
-              <div className="realative z-10 flex flex-col items-center justify-center px-4">
+              <div className="relative z-10 flex flex-col items-center justify-center px-4">
                 <div className="text-5xl md:text-6xl">
                   {isCountingUp && fact.number.match(/^\d+$/) ? (
                     <CountUp 
