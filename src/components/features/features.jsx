@@ -7,7 +7,10 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="bg-violet-100  mx-auto flex flex-col items-center justify-center py-10  gap-10"
+      className="mx-auto flex flex-col items-center justify-center py-10  gap-10"
+      style={{
+        backgroundImage: "url('/assets/images/BACKGROUND_WEBSITE_POLY.png')",
+      }}
     >
       <h2 className="text-(length:--subtitle-font-size)">How Backpack Works</h2>
       <div className="flex flex-col lg:flex-row  items-center justify-center align-center ">
