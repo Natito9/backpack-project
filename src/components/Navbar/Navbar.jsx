@@ -11,10 +11,8 @@ export default function Navbar() {
 
   return (
     <div className="w-full scroll-smooth">
-      {/* Sticky Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/60 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
           <a href="/#hero" className="flex items-center z-50">
             <Image
               src="/assets/images/hero-logo.png"
@@ -27,7 +25,7 @@ export default function Navbar() {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            {["about", "features", "emmo", "contact"].map((item) => (
+            {["hero", "features", "emmo", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -60,7 +58,7 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/60 pt-20 pb-2 px-6 shadow-md md:hidden">
           <div className="flex flex-col space-y-4">
-            {["about", "features", "emmo", "contact"].map((item) => (
+            {["hero", "features", "emmo", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
