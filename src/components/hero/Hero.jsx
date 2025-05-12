@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import { useState } from "react";
-import LandingPage from "./LandingPage";
+import LandingPage from "./Title";
 import FactCards from "./FactCards";
 
 export default function Hero() {
