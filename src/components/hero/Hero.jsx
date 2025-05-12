@@ -22,6 +22,7 @@ export default function Hero() {
         src="/assets/images/hero-background.jpg"
         alt="Background"
         fill
+        sizes="100vw"
         priority
         className="object-cover object-center -z-10"
       />
@@ -50,8 +51,10 @@ export default function Hero() {
             <Image
               src="/assets/images/hero-emmo.png"
               alt="Emmo character"
+              priority
               width={300}
               height={300}
+              className="w-auto h-auto" 
             />
           </div>
           <ChatBubble />
