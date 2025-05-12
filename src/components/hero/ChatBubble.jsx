@@ -1,6 +1,6 @@
 export default function ChatBubble() {
   return (
-    <div className="absolute bottom-[22rem] right-4 md:bottom-[16rem]  lg:right-[28rem] p-4">
+    <div className="absolute bottom-[21rem] right-4 md:bottom-[22rem] md:right-[24rem]  lg:right-[24rem] p-4">
       <aside
         role="status"
         aria-live="polite"
@@ -13,8 +13,6 @@ export default function ChatBubble() {
           child. You can sign up for the waitlist here, and I will let you know
           when I am ready! 👋
         </p>
-
-        <div className="absolute left-[24rem]  -bottom-0 w-4 h-4 bg-white rotate-15 "></div>
       </aside>
     </div>
   );
