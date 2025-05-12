@@ -3,16 +3,21 @@
 import { useEffect, useState } from "react";
 import "animate.css";
 
-export default function FactCaption({ phase }) {
+export default function FactCaption({ phase, onDone }) {
   const [showFirst, setShowFirst] = useState(false);
   const [showSecond, setShowSecond] = useState(false);
 
   useEffect(() => {
     if (phase === "expanded") {
       setShowFirst(true);
-      setShowSecond(true)
+      setTimeout(() => {
+        setShowSecond(true);
+      }, 1000); // Delay second caption
+      setTimeout(() => {
+        if (onDone) onDone();
+      }, 9000); // Allow time for fade-in before calling onDone
     }
-  }, [phase]);
+  }, [phase, onDone]);
 
   return (
     <div className="absolute bottom-20 w-full md:px-40 text-center space-y-4">

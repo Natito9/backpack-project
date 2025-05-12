@@ -34,14 +34,14 @@ export default function FactCards({ onDone, phase, setPhase }) {
 
     const flyAwayTimer = setTimeout(() => {
       setPhase("flyaway");
-    }, 5000);
+    }, 7500);
 
     const endTimer = setTimeout(() => {
       setPhase("done");
       if (onDone) {
         onDone();
       }
-    }, 6500);
+    }, 9000);
 
     return () => {
       clearTimeout(showTimer);
