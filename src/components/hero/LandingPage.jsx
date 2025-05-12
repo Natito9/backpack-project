@@ -48,14 +48,14 @@ export default function LandingPage({ onDone }) {
   }, [onDone]);
 
   return (
-    <section className="relative h-screen w-full">
-      <Image
-        src="/assets/images/hero-background.jpg"
-        alt="Background"
-        fill
-        priority
-        className="object-cover object-center -z-10"
-      />
+    // <section className="relative h-screen w-full">
+    //    <Image
+    //    src="/assets/images/hero-background.jpg"
+    //    alt="Background"
+    //    fill
+    //   priority
+    //   className="object-cover object-center -z-10"
+    // />
       <div className="absolute inset-0 flex items-center justify-center text-center px-4">
         <div
           className="
@@ -74,6 +74,6 @@ export default function LandingPage({ onDone }) {
           <span className="block">Webpack Studios</span>
         </div>
       </div>
-    </section>
+    // </section>
   );
 }
