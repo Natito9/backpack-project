@@ -4,8 +4,7 @@ import "animate.css";
 import Image from "next/image";
 import CountUp from "react-countup";
 
-export default function FactCards({ onDone }) {
-  const [phase, setPhase] = useState("hidden");
+export default function FactCards({ onDone, phase, setPhase }) {
 
   const flyDirections = Array(5)
     .fill()
@@ -26,7 +25,7 @@ export default function FactCards({ onDone }) {
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setPhase("show");
-    }, 2000); // I made here the changes from 500 to 2000
+    }, 2000); 
 
     const expandedTimer = setTimeout(() => {
       setPhase("expanded");
@@ -34,14 +33,14 @@ export default function FactCards({ onDone }) {
 
     const flyAwayTimer = setTimeout(() => {
       setPhase("flyaway");
-    }, 5000);
+    }, 7500);
 
     const endTimer = setTimeout(() => {
       setPhase("done");
       if (onDone) {
         onDone();
       }
-    }, 6500);
+    }, 9000);
 
     return () => {
       clearTimeout(showTimer);
@@ -49,7 +48,7 @@ export default function FactCards({ onDone }) {
       clearTimeout(flyAwayTimer);
       clearTimeout(endTimer);
     };
-  }, [onDone]);
+  }, [onDone, setPhase]);
 
   const facts = [
     { number: "1/4", unit: "year" },
@@ -135,7 +134,7 @@ export default function FactCards({ onDone }) {
                 transitionDelay:
                   isExpanding && !isFlyingAway
                     ? `${Math.abs(Math.floor(facts.length / 2) - i) * 120}ms`
-                    : `${i * 100}ms`, // delay for the fly away animation
+                    : `${i * 200}ms`, // delay for the fly away animation
                 ...flyStyle,
               }}
             >

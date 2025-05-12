@@ -5,9 +5,12 @@ import { useState } from "react";
 import Title from "./Title";
 import FactCards from "./FactCards";
 import ChatBubble from "./ChatBubble";
+import FactCaption from "./FactCaption";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
+  const [phase, setPhase] = useState("hidden");
+
   return (
     <section
       id="hero"
@@ -22,7 +25,16 @@ export default function Hero() {
         priority
         className="object-cover object-center -z-10"
       />
-      {showFacts && <FactCards onDone={() => setShowFacts(false)} />}
+    {showFacts && (
+        <>
+        <FactCards phase={phase} setPhase={setPhase} onDone={() => setShowFacts(false)} />
+
+        <FactCaption phase={phase} onDone={() => {
+  setPhase("done");
+  setShowFacts(false);
+}} />
+        </>
+      )}
       {!showFacts && (
         <>
           <div className="absolute inset-0 flex justify-center items-start md:mt-30 mt-25 p-5">

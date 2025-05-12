@@ -14,19 +14,19 @@ export default function Mission() {
 
         <div className="flex flex-col items-center">
           <Image
-            src="/assets/icons/Icon_48x_HealthyChoices.png"
+            src="/assets/icons/Icon_128x_HealthyChoices.png"
             alt="Heart icon"
-            width={48}
-            height={48}
+            width={128}
+            height={128}
           />
           <p className="pt-5 text-center">Healthy</p>
         </div>
         <div className="flex flex-col items-center">
       
             <Image
-              src="/assets/icons/Icon_48x_Boundaries.png"
+              src="/assets/icons/Icon_128x_Boundaries.png"
               alt="Brain icon"
-              width={48}
+              width={128}
               height={48}
             />
       
@@ -36,9 +36,9 @@ export default function Mission() {
         <div className="flex flex-col items-center">
    
             <Image
-              src="/assets/icons/Icon_48x_Support.png"
-              alt="Console remote icon"
-              width={48}
+              src="/assets/icons/Icon_128x_Support.png"
+              alt="Heart icon"
+              width={128}
               height={48}
             />
        
