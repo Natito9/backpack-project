@@ -5,14 +5,15 @@ import Image from "next/image";
 import CountUp from "react-countup";
 
 export default function FactCards({ onDone, phase, setPhase }) {
-
-  const flyDirections = Array(5)
-    .fill()
-    .map(() => ({
-      x: Math.random() * 200 - 100,
-      y: Math.random() * 150 - 50,
-      rotate: Math.random() * 90 - 45,
-    }));
+  const [flyDirections] = useState(() =>
+    Array(5)
+      .fill()
+      .map(() => ({
+        x: Math.random() * 200 - 100,
+        y: Math.random() * 150 - 50,
+        rotate: Math.random() * 90 - 45,
+      }))
+  );
 
   const cardColors = [
     { bg: "#FFD6E0", text: "#FF4081" }, // pink
@@ -25,7 +26,7 @@ export default function FactCards({ onDone, phase, setPhase }) {
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setPhase("show");
-    }, 2000); 
+    }, 2000);
 
     const expandedTimer = setTimeout(() => {
       setPhase("expanded");
@@ -73,7 +74,6 @@ export default function FactCards({ onDone, phase, setPhase }) {
           const isFlyingAway = phase === "flyaway" || phase === "done";
 
           let left = "50%";
-          let translateX = "-50%";
 
           if (isExpanding) {
             const progress = phase === "expanding" ? 0.5 : 1;
@@ -93,19 +93,6 @@ export default function FactCards({ onDone, phase, setPhase }) {
             }
           }
 
-          const flyStyle = isFlyingAway
-            ? {
-                transform: `
-              translateX(calc(-50% + ${flyDirections[i].x}vw))
-              translateY(calc(-50% + ${flyDirections[i].y}vh))
-              rotate(${flyDirections[i].rotate}deg)
-            `,
-                opacity: 0,
-                transition:
-                  "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease-out",
-              }
-            : {};
-
           return (
             <div
               key={i}
@@ -116,26 +103,20 @@ export default function FactCards({ onDone, phase, setPhase }) {
                 font-bold text-2xl md:text-4xl
                 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]
                 ${!isVisible ? "opacity-0 scale-50" : "opacity-100 scale-100"}
-                ${
-                  isFloating
-                    ? "animate__animated animate__pulse animate__infinite"
-                    : ""
-                }
+                ${isFloating ? "animate__animated animate__pulse animate__infinite" : ""}
+                ${isFlyingAway ? "animate__animated animate__fadeOut" : ""}
                 shadow-lg overflow-hidden
               `}
               style={{
                 left,
-                transform: !isFlyingAway
-                  ? `translateX(-50%) translateY(-50%)`
-                  : undefined,
+                transform: `translateX(-50%) translateY(-50%)`,
                 zIndex: isCenterCard
                   ? 10
                   : 5 - Math.abs(Math.floor(facts.length / 2) - i),
                 transitionDelay:
                   isExpanding && !isFlyingAway
                     ? `${Math.abs(Math.floor(facts.length / 2) - i) * 120}ms`
-                    : `${i * 200}ms`, // delay for the fly away animation
-                ...flyStyle,
+                    : `${(facts.length - i) * 150}ms`,
               }}
             >
               {/* background */}
@@ -144,6 +125,7 @@ export default function FactCards({ onDone, phase, setPhase }) {
                   src="/assets/images/BACKGROUND_WEBSITE_POLY.png"
                   alt="Polygon background"
                   fill
+                  sizes="(max-width: 768px) 180px, 28vw"
                   className="object-cover"
                 />
               </div>

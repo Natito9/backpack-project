@@ -27,7 +27,7 @@ export default function Mission() {
               src="/assets/icons/Icon_128x_Boundaries.png"
               alt="Brain icon"
               width={128}
-              height={48}
+              height={128}
             />
       
           <p className="pt-5 text-center">Bounderies</p>
@@ -39,7 +39,7 @@ export default function Mission() {
               src="/assets/icons/Icon_128x_Support.png"
               alt="Heart icon"
               width={128}
-              height={48}
+              height={128}
             />
        
           <p className="pt-5 text-center">Support</p>
