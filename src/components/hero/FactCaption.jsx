@@ -36,7 +36,7 @@ export default function FactCaption({ phase, onDone }) {
       {showSecond && (
       
       <p
-      className={`absolute bottom-20 left-1/2 transform md:-translate-x-1/2 text-lg md:text-xl font-medium drop-shadow-lg animate__animated ${
+      className={`absolute text-white bottom-20 left-1/2 transform md:-translate-x-1/2 text-lg md:text-xl font-medium drop-shadow-lg animate__animated ${
         hideAll ? "animate__fadeOutDown" : "animate__fadeInUp animate__delay-1s"
       }`}
     >
