@@ -145,8 +145,9 @@ export default function Contact() {
               <Image
                 src="/assets/images/Instagram.png"
                 alt="Instagram"
-                width={21}
-                height={24}
+                style={{ height: "24px", width: "auto" }}
+                width={0}
+                height={0}
               />
             </a>
           </div>
