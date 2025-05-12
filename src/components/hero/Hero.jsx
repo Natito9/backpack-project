@@ -28,7 +28,6 @@ export default function Hero() {
     {showFacts && (
         <>
         <FactCards phase={phase} setPhase={setPhase} onDone={() => setShowFacts(false)} />
-
         <FactCaption phase={phase} onDone={() => {
   setPhase("done");
   setShowFacts(false);
