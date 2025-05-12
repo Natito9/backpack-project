@@ -2,8 +2,9 @@
 import Image from "next/image";
 
 import { useState } from "react";
-import LandingPage from "./LandingPage";
+import Title from "./Title";
 import FactCards from "./FactCards";
+import ChatBubble from "./ChatBubble";
 import FactCaption from "./FactCaption";
 
 export default function Hero() {
@@ -13,9 +14,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative  h-screen max-[500px] md:h-[90vh] w-full"
+      className="relative  h-screen max-[500px] md:h-[100vh] w-full"
     >
-      <LandingPage />
+      <Title />
+
       <Image
         src="/assets/images/hero-background.jpg"
         alt="Background"
@@ -50,6 +52,7 @@ export default function Hero() {
               height={300}
             />
           </div>
+          <ChatBubble />
         </>
       )}
     </section>
