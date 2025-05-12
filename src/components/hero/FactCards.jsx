@@ -5,7 +5,6 @@ import Image from "next/image";
 import CountUp from "react-countup";
 
 export default function FactCards({ onDone, phase, setPhase }) {
-  // const [phase, setPhase] = useState("hidden");
 
   const flyDirections = Array(5)
     .fill()
