@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Footer() {
+export default function Footer({ onShowUnderConstruction }) {
   return (
     <footer
       className="w-full bg-cover bg-center text-gray-800 px-6 py-12 border-t border-gray-200"
@@ -38,17 +38,17 @@ export default function Footer() {
           {/* Resources Column */}
           <div className="flex flex-col space-y-2">
             <h3 className="text-gray-700 font-medium mb-2">Resources</h3>
-            <a href="#" className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">FAQ</a>
-            <a href="#" className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Press Kit</a>
-            <a href="#" className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Brand Assets</a>
+            <a href="#" onClick={e => { e.preventDefault(); onShowUnderConstruction(); }} className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">FAQ</a>
+            <a href="#" onClick={e => { e.preventDefault(); onShowUnderConstruction(); }} className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Press Kit</a>
+            <a href="#" onClick={e => { e.preventDefault(); onShowUnderConstruction(); }} className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Brand Assets</a>
           </div>
 
           {/* Legal Column */}
           <div className="flex flex-col space-y-2">
             <h3 className="text-gray-700 font-medium mb-2">Legal</h3>
-            <a href="#" className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Privacy Policy</a>
-            <a href="#" className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Terms of Service</a>
-            <a href="#" className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Cookie Policy</a>
+            <a href="#" onClick={e => { e.preventDefault(); onShowUnderConstruction(); }} className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Privacy Policy</a>
+            <a href="#" onClick={e => { e.preventDefault(); onShowUnderConstruction(); }} className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Terms of Service</a>
+            <a href="#" onClick={e => { e.preventDefault(); onShowUnderConstruction(); }} className="text-gray-600 text-sm hover:bg-[#cceaea] rounded-full px-2 py-1">Cookie Policy</a>
           </div>
         </div>
 
