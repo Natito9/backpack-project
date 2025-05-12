@@ -38,8 +38,9 @@ export default function Waitlist() {
       Join the Movement
     </h2>
     <p className="mt-4 leading-normal font-sans text-black">
-      Be part of something special. Help us create a world where every child <br />
-      has the tools to understand and express their emotions.
+    We wish Backpack was ready today—the need is urgent. By joining the waitlist, you’ll be the first to know when it launches. No strings attached. You might even be selected to test it for free.<br />
+  And just so you know: this is not an app where kids can spend money. There’ll be a free trial, and if you want to continue after that, the monthly fee will likely be <br />between 99–149 SEK.<br />
+  P.S. Yes, parents can try Emmo too—we know you’re curious.
     </p>
 
     <form
@@ -66,7 +67,5 @@ export default function Waitlist() {
 </section>
 
 
-  );
-  
-  
+  ); 
 }
