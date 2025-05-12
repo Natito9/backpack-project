@@ -32,7 +32,7 @@ export default function Waitlist() {
   };
   return (
 
-<section className="bg-[#e4f4f2] text-black py-20 text-center">
+<section id="section" className="bg-[#e4f4f2] text-black py-20 text-center">
   <div className="max-w-2xl mx-auto px-4">
     <h2 className="text-2xl sm:text-3xl font-semibold leading-tight font-sans text-black">
       Join the Movement
