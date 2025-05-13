@@ -1,11 +1,37 @@
-Gruop project and collaboration with Backpack
+# Group Project with Backpack
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a Next.js project bootstrapped with create-next-app, developed collaboratively as a group project with **Backpack**. The project is styled using **Tailwind CSS**.
+
 
 ## Getting Started
 
-First, run the development server:
 
+## 1. Install Dependencies
+
+To install all required dependencies for this project, including EmailJS, React CountUp, and Animate.css, run the following command:
+
+```bash
+npm install
+```
+This will install everything listed in the package.json file, including:
+
+* @emailjs/browser – for sending emails
+
+* react-countup – for animated number counting
+
+* animate.css – for CSS animations
+
+## 2. If the Dependencies Are Missing  
+In case you are missing EmailJS, React CountUp, or Animate.css in your project, you can manually install them by running the following commands:
+```bash
+npm install @emailjs/browser
+npm install react-countup
+npm install animate.css
+```
+After running the above commands, the missing dependencies will be installed.
+
+## 3. Run the Development Server
+After installing all dependencies, run the development server:
 ```bash
 npm run dev
 # or
@@ -15,12 +41,31 @@ pnpm dev
 # or
 bun dev
 ```
+Open http://localhost:3000 in your browser to view the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
+You can start editing the project by modifying:
+```bash
+app/page.js
+```
+
+
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Features
+* Next.js app setup with create-next-app
+
+* Font optimization using next/font with Geist
+
+* Email handling via EmailJS
+
+* Animated counters using react-countup
+
+* Smooth CSS animations with animate.css
+
+
 
 ## Learn More
 
