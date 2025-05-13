@@ -19,7 +19,6 @@ export default function Navbar() {
               alt="Backpack Studios logo"
               width={140}
               height={50}
-              className="h-auto"
             />
           </a>
 
