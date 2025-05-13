@@ -32,10 +32,18 @@ export default function Waitlist() {
   };
   return (
 
-<section className="flex flex-col justify-center items-center bg-[#e4f4f2] text-black py-10 px-5 md:py-20">
-  <h2 className="text-[length:--subtitle-font-size] leading-[--subtitle-line-height] pb-7 text-center font-semibold">
-    Join the Movement
-  </h2>
+
+<section id="waitlist" className="bg-[#e4f4f2] text-black py-20 text-center">
+  <div className="max-w-2xl mx-auto px-4">
+    <h2 className="text-2xl sm:text-3xl font-semibold leading-tight font-sans text-black">
+      Join the Movement
+    </h2>
+    <p className="mt-4 leading-normal font-sans text-black">
+    We wish Backpack was ready today—the need is urgent. By joining the waitlist, you’ll be the first to know when it launches. No strings attached. You might even be selected to test it for free.<br />
+  And just so you know: this is not an app where kids can spend money. There’ll be a free trial, and if you want to continue after that, the monthly fee will likely be <br />between 99–149 SEK.<br />
+  P.S. Yes, parents can try Emmo too—we know you’re curious.
+    </p>
+
 
   <p className="max-w-[800px] text-justify pb-5">
     We wish Backpack was ready today—the need is urgent. By joining the waitlist, you’ll be the first to know when it launches. No strings attached. You might even be selected to test it for free.

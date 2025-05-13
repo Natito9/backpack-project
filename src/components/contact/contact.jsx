@@ -1,6 +1,42 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  function handleChange(e) {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus(null);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setStatus({ type: "success", message: data.message });
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus({ type: "error", message: data.message });
+      }
+    } catch (err) {
+      setStatus({ type: "error", message: "Something went wrong. Try again!" });
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -14,7 +50,7 @@ export default function Contact() {
             </h2>
           </div>
 
-          <form className="w-full flex flex-col gap-6">
+          <form className="w-full flex flex-col gap-6" onSubmit={handleSubmit}>
             <div className="w-full flex flex-col md:flex-row gap-6">
               <label htmlFor="name" className="sr-only">
                 Name
@@ -25,6 +61,8 @@ export default function Contact() {
                 placeholder="Name"
                 required
                 aria-label="Name"
+                value={form.name}
+                onChange={handleChange}
                 className="flex-1 min-h-12 px-4 py-2 border border-gray-300 rounded-lg 
                   font-placeholder text-placeholder text-base placeholder:font-placeholder placeholder:text-placeholder 
                   focus:outline-none focus:ring-2 focus:ring-(--main-color)"
@@ -38,6 +76,8 @@ export default function Contact() {
                 placeholder="Email"
                 required
                 aria-label="Email"
+                value={form.email}
+                onChange={handleChange}
                 className="flex-1 min-h-12 px-4 py-2 border border-gray-300 rounded-lg 
                   font-placeholder text-placeholder text-base placeholder:font-placeholder placeholder:text-placeholder 
                   focus:outline-none focus:ring-2 focus:ring-(--main-color)"
@@ -52,6 +92,8 @@ export default function Contact() {
               required
               aria-label="Message"
               minLength="10"
+              value={form.message}
+              onChange={handleChange}
               className="w-full h-32 px-4 py-2 border border-gray-300 rounded-lg resize-none 
                 font-placeholder text-placeholder text-base placeholder:font-placeholder placeholder:text-placeholder 
                 focus:outline-none focus:ring-2 focus:ring-(--main-color)"
@@ -60,13 +102,27 @@ export default function Contact() {
             <div className="w-full h-12">
               <button
                 type="submit"
-                className="w-full h-full rounded-full bg-(--main-color) text-white 
-                  font-placeholder text-placeholder hover:bg-[#CCEAEA] transition-all duration-200"
+                disabled={loading}
+                className={`w-full h-full rounded-full bg-(--main-color) text-(--text-color) 
+                  font-placeholder text-placeholder hover:bg-[#CCEAEA] transition-all duration-200 ${
+                    loading ? "opacity-60 cursor-not-allowed" : ""
+                  }`}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </div>
           </form>
+
+          {/* Status message */}
+          {status && (
+            <div
+              className={`mt-4 text-center ${
+                status.type === "success" ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
 
           <div className="mt-6 w-full flex justify-center items-center gap-6">
             <a
@@ -89,8 +145,9 @@ export default function Contact() {
               <Image
                 src="/assets/images/Instagram.png"
                 alt="Instagram"
-                width={21}
-                height={24}
+                style={{ height: "24px", width: "auto" }}
+                width={0}
+                height={0}
               />
             </a>
           </div>

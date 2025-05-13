@@ -2,46 +2,53 @@ import Image from "next/image";
 
 export default function Mission() {
   return (
-    <section id="mission" className="flex flex-col justify-center items-center py-10 px-5 md:py-20">
-      <h2 className="text-(length:--subtitle-font-size) leading-(--subtitle-line-height)  pb-7">Our Mission</h2>
-      <p className="max-w-[900px] text-center pb-5">
-      We know that being a parent in the digital era is hard to navigate. But we have to; we owe it to our children to not allow this situation where excessive screen time is becoming a huge cloud on their horizon. So we try, but often end up in conflict with our children. This means that not only does screen time eat its way into time that could be spent together, it also lowers the quality of the time spent together. We become screen police, constantly trying to get on top of a situation we enter from a losing position. How are we to fight conditional algorithms? How can we make sure that the children follow what we agree upon in terms of time for gaming or leaving the screen alone before bed without constantly hanging over their shoulder? We need a helping hand. On the phone. In the moment. Someone to take over the role of nudging, setting boundries and supporting healthy choices as the phone is being used so we can focus on building strong, loving, and communicative relationships with our children.
-
-
+    <section
+      id="mission"
+      className="flex flex-col justify-center items-center py-10 px-5 md:py-20"
+    >
+      <h2 className="text-(length:--subtitle-font-size) leading-(--subtitle-line-height)  pb-7">
+        Our Mission
+      </h2>
+      <p className="max-w-[800px] text-justify pb-5">
+        Parenting in the digital age is tough. We want to guide our kids - but
+        end up in conflict, becoming screen police instead of just being
+        present. Algorithms are smart, and we're always one step behind.
       </p>
-      <p className="text-center pb-12">Our mission is to have Backpack become that helping hand.</p>
-      <div className="flex items-center justify-center gap-10 md:gap-20">
-
+      <p className="max-w-[800px] text-justify pb-12">
+        Backpack is here to change that. A helping hand on the phone, right in
+        the moment - gently nudging, setting boundaries, and supporting healthy
+        choices. So parents can focus on what really matters: strong, loving
+        relationships.
+      </p>
+      <div className="flex items-center md:text-xl justify-center gap-10 md:gap-20">
         <div className="flex flex-col items-center">
           <Image
-            src="/assets/icons/Icon_48x_HealthyChoices.png"
-            alt="Heart icon"
-            width={48}
-            height={48}
+            src="/assets/icons/Icon_128x_HealthyChoices.png"
+            alt="Diamond icon"
+            width={128}
+            height={128}
           />
           <p className="pt-5 text-center">Healthy</p>
         </div>
         <div className="flex flex-col items-center">
-      
-            <Image
-              src="/assets/icons/Icon_48x_Boundaries.png"
-              alt="Brain icon"
-              width={48}
-              height={48}
-            />
-      
+          <Image
+            src="/assets/icons/Icon_128x_Boundaries.png"
+            alt="Paw icon"
+            width={128}
+            height={128}
+          />
+
           <p className="pt-5 text-center">Bounderies</p>
         </div>
 
         <div className="flex flex-col items-center">
-   
-            <Image
-              src="/assets/icons/Icon_48x_Support.png"
-              alt="Console remote icon"
-              width={48}
-              height={48}
-            />
-       
+          <Image
+            src="/assets/icons/Icon_128x_Support.png"
+            alt="Heart icon"
+            width={128}
+            height={128}
+          />
+
           <p className="pt-5 text-center">Support</p>
         </div>
       </div>

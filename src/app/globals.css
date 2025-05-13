@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'animate.css';
 
 :root {
   --foreground: #171717;
@@ -28,4 +29,7 @@
   --main-color: #e4f4f2;
   --bg-color: #ffffff;
   --text-color: #131313;
+
+  /*scroll*/
+  scroll-behavior: smooth;
 }
