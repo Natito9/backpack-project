@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-
-import { useState } from "react";
+import Emmo from "./Emmo";
+import {useState} from "react";
 import Title from "./Title";
 import FactCards from "./FactCards";
 import ChatBubble from "./ChatBubble";
@@ -28,8 +28,9 @@ export default function Hero() {
         priority
         className="object-cover object-center -z-10"
       />
-    {showFacts && (
+      {showFacts && (
         <>
+
         <FactCards phase={phase} setPhase={setPhase} onDone={() => setShowFacts(false)} />
         <FactCaption phase={phase} onDone={() => {
   setPhase("done");
@@ -37,6 +38,7 @@ export default function Hero() {
 }} />
       <SkipBtn
             onClick={() => {
+
               setPhase("done");
               setShowFacts(false);
             }}
@@ -55,17 +57,10 @@ export default function Hero() {
             />
           </div>
 
-          <div className="absolute bottom-4 right-4  md:bottom-5 md:right-30 lg:right-40 p-4">
-            <Image
-              src="/assets/images/hero-emmo.png"
-              alt="Emmo character"
-              priority
-              width={300}
-              height={300}
-              className="w-auto h-auto" 
-            />
+          <div className="flex flex-col items-center ">
+            <ChatBubble />
+            <Emmo />
           </div>
-          <ChatBubble />
         </>
       )}
     </section>
