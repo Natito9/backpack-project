@@ -7,12 +7,18 @@ import FactCards from "./FactCards";
 import ChatBubble from "./ChatBubble";
 import FactCaption from "./FactCaption";
 import SkipBtn from "./SkipBtn";
-
+import ProgressBar from "./probar";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
   const [phase, setPhase] = useState("hidden");
+  const [animationCompleteed, setAnimationCompleted] = useState(false);
+  const [showProgressBar, setShowProgressBar] = useState(true);
 
+  const handleAnimationComplete = () => {
+    setAnimationCompleted(true);
+    setShowProgressBar(false);
+  }
   return (
     <section
       id="hero"
@@ -31,18 +37,27 @@ export default function Hero() {
       {showFacts && (
         <>
 
-        <FactCards phase={phase} setPhase={setPhase} onDone={() => setShowFacts(false)} />
+        <FactCards 
+          phase={phase} 
+          setPhase={setPhase} 
+          onDone={() => setShowFacts(false)} 
+        />
         <FactCaption phase={phase} onDone={() => {
-  setPhase("done");
-  setShowFacts(false);
-}} />
-      <SkipBtn
-            onClick={() => {
-
-              setPhase("done");
-              setShowFacts(false);
-            }}
+          setPhase("done");
+          setShowFacts(false);
+        }} />
+        <SkipBtn
+          onClick={() => {
+            setPhase("done");
+            setShowFacts(false);
+          }}
+        />
+        {!animationCompleteed && (
+          <ProgressBar
+            duration={10000}
+            onComplete={handleAnimationComplete}
           />
+        )}
         </>
       )}
       {!showFacts && (
