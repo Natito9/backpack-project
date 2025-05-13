@@ -6,6 +6,8 @@ import Title from "./Title";
 import FactCards from "./FactCards";
 import ChatBubble from "./ChatBubble";
 import FactCaption from "./FactCaption";
+import SkipBtn from "./SkipBtn";
+
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
@@ -28,14 +30,15 @@ export default function Hero() {
       />
       {showFacts && (
         <>
-          <FactCards
-            phase={phase}
-            setPhase={setPhase}
-            onDone={() => setShowFacts(false)}
-          />
-          <FactCaption
-            phase={phase}
-            onDone={() => {
+
+        <FactCards phase={phase} setPhase={setPhase} onDone={() => setShowFacts(false)} />
+        <FactCaption phase={phase} onDone={() => {
+  setPhase("done");
+  setShowFacts(false);
+}} />
+      <SkipBtn
+            onClick={() => {
+
               setPhase("done");
               setShowFacts(false);
             }}
