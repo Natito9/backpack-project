@@ -1,9 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Facts() {
   const el = useRef(null)
+  const [isClient, setIsClient] = useState(false); 
 
   useEffect(() => {
+    setIsClient(true);
+
     class TextScramble {
       constructor(el) {
         this.el = el
@@ -20,8 +23,8 @@ export default function Facts() {
         for (let i = 0; i < length; i++) {
           const from = oldText[i] || ''
           const to = newText[i] || ''
-          const start = Math.floor(Math.random() * 40)
-          const end = start + Math.floor(Math.random() * 40)
+          const start = Math.floor(Math.random() * 30)
+          const end = start + Math.floor(Math.random() * 80)
           this.queue.push({ from, to, start, end })
         }
 
@@ -42,11 +45,11 @@ export default function Facts() {
             complete++
             output += to
           } else if (this.frame >= start) {
-            if (!char || Math.random() < 0.28) {
+            if (!char || Math.random() < 0.26) {
               char = this.randomChar()
               this.queue[i].char = char
             }
-            output += `<span class="dud">${char}</span>`
+            output += `<span class="text-amber-700">${char}</span>`
           } else {
             output += from
           }
@@ -67,13 +70,23 @@ export default function Facts() {
       }
     }
 
-    const phrases = ['6 HOURS A DAY', '3 FULL MONTHS A YEAR', '20 YEARS OVER A LIFETIME"']
-    const fx = new TextScramble(el.current)
+    // ✅ Step 1: Pad all phrases to the same length
+    const rawPhrases = [
+      '6 HOURS A DAY',
+      '   3 MONTHS A YEAR',
+      '20 YEARS IN A LIFETIME',
+      // 'THIS IS THE AVERAGE PRIVATE SCREENTIME OF TIME SWEDISH TEENAGERS TODAY.',
+      // 'We are not here to warn. We are here to act. And that action is an app named Backpack.'
+    ]
+    const maxLen = Math.max(...rawPhrases.map(p => p.length))
+    const phrases = rawPhrases.map(p => p.padEnd(maxLen, ' ')) // ← pad with spaces
 
+    const fx = new TextScramble(el.current)
     let counter = 0
+
     const next = () => {
       fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 2500)
+        setTimeout(next, 4000)
       })
       counter = (counter + 1) % phrases.length
     }
@@ -82,8 +95,11 @@ export default function Facts() {
   }, [])
 
   return (
-    <div className="flex justify-center items-center h-full w-full">
-      <div ref={el} className="text-xl"></div>
+    <div className="flex justify-center items-center h-full w-full px-4">
+      <div
+        ref={el}
+        className={`text-2xl md:text-6xl text-center font-bold text-amber-950 whitespace-pre max-w-full sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden ${isClient ? '' : 'opacity-0'}`}
+      ></div>
     </div>
   )
 }
