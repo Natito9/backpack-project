@@ -6,6 +6,7 @@ import Title from "./Title";
 import FactCards from "./FactCards";
 import ChatBubble from "./ChatBubble";
 import FactCaption from "./FactCaption";
+import Facts from "./Facts";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
@@ -16,7 +17,7 @@ export default function Hero() {
       id="hero"
       className="relative  h-screen max-[500px] md:h-[100vh] w-full"
     >
-      <Title />
+      {/* <Title /> */}
 
       <Image
         src="/assets/images/hero-background.jpg"
@@ -26,7 +27,7 @@ export default function Hero() {
         priority
         className="object-cover object-center -z-10"
       />
-    {showFacts && (
+    {/* {showFacts && (
         <>
         <FactCards phase={phase} setPhase={setPhase} onDone={() => setShowFacts(false)} />
         <FactCaption phase={phase} onDone={() => {
@@ -57,9 +58,10 @@ export default function Hero() {
               className="w-auto h-auto" 
             />
           </div>
-          <ChatBubble />
-        </>
-      )}
+          <ChatBubble /> */}
+        {/* </> */}
+      {/* )} */}
+      <Facts />
     </section>
   );
 }
