@@ -39,7 +39,7 @@ export default function Title({ onDone = () => {} }) {
           "
         >
           <span className="block">Welcome to</span>
-          <span className="block">Webpack Studios</span>
+          <span className="block">Backpack Studios</span>
         </div>
       </div>
     </div>
