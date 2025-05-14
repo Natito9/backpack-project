@@ -1,105 +1,105 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 
 export default function Facts() {
-  const el = useRef(null)
-  const [isClient, setIsClient] = useState(false); 
+  const el = useRef(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
 
     class TextScramble {
       constructor(el) {
-        this.el = el
-        this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        this.update = this.update.bind(this)
+        this.el = el;
+        this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        this.update = this.update.bind(this);
       }
 
       setText(newText) {
-        const oldText = this.el.innerText
-        const length = Math.max(oldText.length, newText.length)
-        const promise = new Promise((resolve) => (this.resolve = resolve))
-        this.queue = []
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => (this.resolve = resolve));
+        this.queue = [];
 
         for (let i = 0; i < length; i++) {
-          const from = oldText[i] || ''
-          const to = newText[i] || ''
-          const start = Math.floor(Math.random() * 30)
-          const end = start + Math.floor(Math.random() * 80)
-          this.queue.push({ from, to, start, end })
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = i * 2 + Math.floor(Math.random() * 10);
+          const end = start + 20 + Math.floor(Math.random() * 15);
+          this.queue.push({ from, to, start, end });
         }
 
-        cancelAnimationFrame(this.frameRequest)
-        this.frame = 0
-        this.update()
-        return promise
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
       }
 
       update() {
-        let output = ''
-        let complete = 0
+        let output = '';
+        let complete = 0;
 
         for (let i = 0, n = this.queue.length; i < n; i++) {
-          let { from, to, start, end, char } = this.queue[i]
+          let { from, to, start, end, char } = this.queue[i];
 
           if (this.frame >= end) {
-            complete++
-            output += to
+            complete++;
+            output += to;
           } else if (this.frame >= start) {
-            if (!char || Math.random() < 0.26) {
-              char = this.randomChar()
-              this.queue[i].char = char
+            if (!char || Math.random() < 0.5) {
+              char = this.randomChar();
+              this.queue[i].char = char;
             }
-            output += `<span class="text-amber-700">${char}</span>`
+            output += `<span class=" text-amber-900 opacity-80">${char}</span>`;
           } else {
-            output += from
+            output += from;
           }
         }
 
-        this.el.innerHTML = output
+        this.el.innerHTML = output;
 
         if (complete === this.queue.length) {
-          this.resolve()
-        } else {
-          this.frameRequest = requestAnimationFrame(this.update)
-          this.frame++
+            this.resolve();
+          } else {
+            // Speed up the frame request to make the scramble happen faster
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+          }
         }
-      }
 
       randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)]
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
       }
     }
 
-    // ✅ Step 1: Pad all phrases to the same length
-    const rawPhrases = [
+    const phrases = [
       '6 HOURS A DAY',
-      '   3 MONTHS A YEAR',
+      '3 MONTHS A YEAR',
       '20 YEARS IN A LIFETIME',
-      // 'THIS IS THE AVERAGE PRIVATE SCREENTIME OF TIME SWEDISH TEENAGERS TODAY.',
-      // 'We are not here to warn. We are here to act. And that action is an app named Backpack.'
-    ]
-    const maxLen = Math.max(...rawPhrases.map(p => p.length))
-    const phrases = rawPhrases.map(p => p.padEnd(maxLen, ' ')) // ← pad with spaces
+      'THIS IS THE AVERAGE PRIVATE SCREENTIME OF SWEDISH TEENAGERS TODAY.',
+      'WE ARE NOT HERE TO WARN.',
+      'WE ARE HERE TO ACT.',
+      'AND THAT ACTION IS BACKPACK.',
+    ];
 
-    const fx = new TextScramble(el.current)
-    let counter = 0
+    const fx = new TextScramble(el.current);
+    let counter = 0;
 
     const next = () => {
       fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 4000)
-      })
-      counter = (counter + 1) % phrases.length
-    }
+        setTimeout(next, 3500);
+      });
+      counter = (counter + 1) % phrases.length;
+    };
 
-    next()
-  }, [])
+    next();
+  }, []);
 
   return (
     <div className="flex justify-center items-center h-full w-full px-4">
       <div
         ref={el}
-        className={`text-2xl md:text-6xl text-center font-bold text-amber-950 whitespace-pre max-w-full sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden ${isClient ? '' : 'opacity-0'}`}
+        className={`text-2xl md:text-6xl text-center font-bold text-amber-700 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden ${isClient ? '' : 'opacity-0'}`}
       ></div>
     </div>
-  )
+  );
 }
