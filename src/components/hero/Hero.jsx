@@ -79,7 +79,7 @@ export default function Hero() {
               alt="Backpack Studios logo"
               width={600}
               height={200}
-              className="h-auto"
+              className="h-auto [@media(max-height:675px)]:max-w-[70vh] lg:max-w-[70vh] md:max-w-[60vh]"
             />
           </div>
 
