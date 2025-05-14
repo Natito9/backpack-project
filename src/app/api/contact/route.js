@@ -1,4 +1,3 @@
-// src/app/api/contact/route.js
 import nodemailer from "nodemailer";
 
 export async function POST(req) {

@@ -25,7 +25,9 @@ export default function Title({ onDone = () => {} }) {
             src="/assets/images/hero-logo.png"
             alt="Hero Logo"
             className="
-              w-[60vw] 
+              w-[85vw] 
+              sm:w-[60vw]
+              md:w-[70vw]
               max-w-[600px]
               animate__animated
               animate__zoomOut
