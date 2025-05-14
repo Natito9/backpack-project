@@ -45,7 +45,7 @@ export default function Features() {
               desc: "Emmo creates a communicative bridge between parent and child, keeping the parent up to date with overall screen habits.",
             },
           ].map((item, index) => (
-            <div className="flex gap-4 items-center mx-auto " key={index}>
+            <div className="flex gap-4 items-center mx-1 " key={index}>
               <Image
                 src={item.src}
                 alt={`${item.title} icon`}
