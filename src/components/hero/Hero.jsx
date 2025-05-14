@@ -74,15 +74,18 @@ export default function Hero() {
 
       {!showFacts && (
        <>
-          <div className="absolute inset-0 flex justify-center items-start md:mt-30 mt-25 p-5">
-            <Image
-              src="/assets/images/hero-logo.png"
-              alt="Backpack Studios logo"
-              width={600}
-              height={200}
-              className="h-auto"
-            />
-          </div>
+       <div className="absolute inset-0 flex justify-center items-start mt-30 p-5 z-20">
+  <div className="w-[300px] md:w-[400px]">
+    <Image
+      src="/assets/images/hero-logo.png"
+      alt="Backpack Studios logo"
+      width={600}
+      height={200}
+      priority
+      className="w-full h-auto transition-opacity duration-500"
+    />
+  </div>
+</div>
           <ChatBubble />
           <Emmo />
           </>
