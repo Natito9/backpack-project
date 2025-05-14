@@ -66,18 +66,42 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 * Smooth CSS animations with animate.css
 
 
+## Automation & Accessibility Testing
+
+We’ve integrated Cypress for end-to-end testing, with a focus on accessibility using the cypress-axe plugin. This ensures that our application remains inclusive and compliant with accessibility standards.
+**To Set Up and Run Accessibility Tests:**
+
+**1.** Install cypress-axe as a dev dependency:
+```bash
+npm install --save-dev cypress-axe
+
+```
+**2.** Import cypress-axe in your Cypress support file (e.g., cypress/support/e2e.js):
+```bash
+import 'cypress-axe';
+```
+**3.** Run the test suite:
+```bash
+npx cypress run
+```
+
+This setup enables the use of cy.injectAxe() and cy.checkA11y() in your tests, helping identify accessibility issues automatically.
+
+## Live Demo
+
+Check out the live version of the project here:
+👉 https://backpack-studios.vercel.app
 
 ## Learn More
+Want to explore more about Next.js? Check out these helpful resources:
 
-To learn more about Next.js, take a look at the following resources:
+* [Next.js Documentation](https://nextjs.org/docs) – Full details on features, configuration, and APIs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [Learn Next.js](https://nextjs.org/learn)– A free, interactive tutorial for beginners
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* [Next.js GitHub](https://github.com/vercel/next.js) Repository – Share feedback, contribute, or browse the source code
 
-## Deploy on Vercel
+## Deployment
+The recommended way to deploy this application is through [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme), the platform created by the team behind Next.js. It offers seamless integration, zero-config deployments, and optimized performance for Next.js projects.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
