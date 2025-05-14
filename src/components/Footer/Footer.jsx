@@ -8,9 +8,6 @@ export default function Footer({ onShowUnderConstruction }) {
     onShowUnderConstruction();
   };
 
-  const linkClass =
-    "text-gray-600 hover:bg-[#cceaea] rounded-full px-0 py-1 transition text-navbar leading-navbar";
-
   const headingClass = "text-gray-700 font-medium mb-2 text-navbar leading-navbar";
   const paragraphClass = "text-gray-600 mt-2 text-navbar leading-navbar";
   const bottomTextClass = "text-gray-600 text-navbar leading-navbar";

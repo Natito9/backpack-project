@@ -9,7 +9,7 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata = {
-  title: "Backpack",
+  title: "Backpack Studios",
   description: "A digital friend supporting emotional exploration and self-awarness",
 };
 
