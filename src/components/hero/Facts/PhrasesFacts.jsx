@@ -39,7 +39,7 @@ export default function PhrasesFacts({ onDone }) {
     <div className="flex justify-center items-center h-full w-full px-4">
       <div
         key={currentIndex}
-        className={`text-2xl md:text-5xl text-center font-bold text-amber-950 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden ${animationClass}`}
+        className={`text-3xl md:text-5xl text-center text-bold text-neutral-600 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl  ${animationClass}`}
       >
         {phrases[currentIndex] || ""}
       </div>
