@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import Emmo from "./Emmo";
-import {useState} from "react";
+import { useState } from "react";
 import Title from "./Title";
-import FactCards from "./FactCards";
 import ChatBubble from "./ChatBubble";
-import FactCaption from "./FactCaption";
 import SkipBtn from "./SkipBtn";
 import ProgressBar from "./probar";
+import Facts from "./Facts/Facts";
+
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
@@ -24,6 +24,14 @@ export default function Hero() {
       id="hero"
       className="relative  h-screen max-[500px] md:h-[100vh] w-full"
     >
+     
+      <SkipBtn
+        onClick={() => {
+          setPhase("done");
+          setShowFacts(false);
+        }}
+      />
+
       <Title />
 
       <Image
@@ -37,15 +45,8 @@ export default function Hero() {
       {showFacts && (
         <>
 
-        <FactCards 
-          phase={phase} 
-          setPhase={setPhase} 
-          onDone={() => setShowFacts(false)} 
-        />
-        <FactCaption phase={phase} onDone={() => {
-          setPhase("done");
-          setShowFacts(false);
-        }} />
+  <Facts onDone={() => setShowFacts(false)} />
+  
         <SkipBtn
           onClick={() => {
             setPhase("done");
@@ -54,12 +55,13 @@ export default function Hero() {
         />
         {!animationCompleteed && (
           <ProgressBar
-            duration={10000}
+            duration={20000}
             onComplete={handleAnimationComplete}
           />
         )}
         </>
       )}
+
       {!showFacts && (
         <>
           <div className="absolute inset-0 flex justify-center items-start md:mt-30 mt-25 p-5">
