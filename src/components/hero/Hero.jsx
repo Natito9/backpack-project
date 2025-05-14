@@ -5,12 +5,18 @@ import { useState } from "react";
 import Title from "./Title";
 import ChatBubble from "./ChatBubble";
 import SkipBtn from "./SkipBtn";
-import Facts from "./Facts";
+import ProgressBar from "./probar";import Facts from "./Facts";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
   const [phase, setPhase] = useState("hidden");
+  const [animationCompleteed, setAnimationCompleted] = useState(false);
+  const [showProgressBar, setShowProgressBar] = useState(true);
 
+  const handleAnimationComplete = () => {
+    setAnimationCompleted(true);
+    setShowProgressBar(false);
+  }
   return (
     <section
       id="hero"
@@ -36,25 +42,28 @@ export default function Hero() {
       />
       {showFacts && (
         <>
-         <Facts />
-          {/* <FactCards
-            phase={phase}
-            setPhase={setPhase}
-            onDone={() => setShowFacts(false)}
+
+        <FactCards 
+          phase={phase} 
+          setPhase={setPhase} 
+          onDone={() => setShowFacts(false)} 
+        />
+        <FactCaption phase={phase} onDone={() => {
+          setPhase("done");
+          setShowFacts(false);
+        }} />
+        <SkipBtn
+          onClick={() => {
+            setPhase("done");
+            setShowFacts(false);
+          }}
+        />
+        {!animationCompleteed && (
+          <ProgressBar
+            duration={10000}
+            onComplete={handleAnimationComplete}
           />
-          <FactCaption
-            phase={phase}
-            onDone={() => {
-              setPhase("done");
-              setShowFacts(false);
-            }}
-          /> */}
-          <SkipBtn
-            onClick={() => {
-              setPhase("done");
-              setShowFacts(false);
-            }}
-          />
+        )}
         </>
       )}
 
