@@ -26,6 +26,7 @@ This will install everything listed in the package.json file, including:
 ## 2. If the Dependencies Are Missing  
 In case you are missing EmailJS, React CountUp, or Animate.css in your project, you can manually install them by running the following commands:
 ```bash
+npm install next react react-dom
 npm install @emailjs/browser
 npm install react-countup
 npm install animate.css

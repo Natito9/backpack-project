@@ -11,11 +11,20 @@ const notoSans = Noto_Sans({
 export const metadata = {
   title: "Backpack",
   description: "A digital friend supporting emotional exploration and self-awarness",
+  icons: {
+    icon: "/emmo.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Favicons */}
+        <link rel="icon" href="/emmo.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/emmo.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/emmo.ico" />
+      </head>
       <body
         className={`${notoSans.variable}`}
       >
