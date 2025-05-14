@@ -1,5 +1,7 @@
-# Group Project with Backpack
+# Group Project with Backpack Studios
+This project was developed collaboratively for Backpack Studios, a client focused on reimagining parenting in the digital age. The product we're helping build—Backpack—is a supportive tool for modern families. At its core is Emmo, a digital companion that helps children understand their emotions, set healthy boundaries, and build lifelong habits around screen use.
 
+## About This Project
 This is a Next.js project bootstrapped with create-next-app, developed collaboratively as a group project with **Backpack**. The project is styled using **Tailwind CSS**.
 
 
