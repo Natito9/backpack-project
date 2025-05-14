@@ -41,7 +41,7 @@ export default function Mission() {
           >
             <div className="w-full h-full transition-transform duration-1000 group-hover:[transform:rotateY(180deg)]">
               <Image
-                src="/assets/icons/Icon_128x_HealthyChoices.png"
+                src="/assets/icons/Icon_128x_Mascot2.png"
                 alt="Healthy Choices"
                 width={128}
                 height={128}
