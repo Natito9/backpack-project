@@ -35,11 +35,11 @@ export default function Mission() {
         <div className="flex flex-col items-center">
           <div
             onClick={() => handleFlip(0)}
-            className={`md:w-32 md:h-32 transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer group ${
+            className={`md:w-32 md:h-32 transition-transform duration-1000 [transform-style:preserve-3d] cursor-pointer group ${
               flippedIndex === 0 ? "[transform:rotateY(180deg)]" : ""
             }`}
           >
-            <div className="w-full h-full transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
+            <div className="w-full h-full transition-transform duration-1000 group-hover:[transform:rotateY(180deg)]">
               <Image
                 src="/assets/icons/Icon_128x_HealthyChoices.png"
                 alt="Healthy Choices"
@@ -55,11 +55,11 @@ export default function Mission() {
         <div className="flex flex-col items-center">
           <div
             onClick={() => handleFlip(1)}
-            className={`md:w-32 md:h-32 transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer group ${
+            className={`md:w-32 md:h-32 transition-transform duration-1000 [transform-style:preserve-3d] cursor-pointer group ${
               flippedIndex === 1 ? "[transform:rotateY(180deg)]" : ""
             }`}
           >
-            <div className="w-full h-full transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
+            <div className="w-full h-full transition-transform duration-1000 group-hover:[transform:rotateY(180deg)]">
             <Image
               src="/assets/icons/Icon_128x_Boundaries.png"
               alt="Boundaries"
@@ -75,11 +75,11 @@ export default function Mission() {
         <div className="flex flex-col items-center">
           <div
             onClick={() => handleFlip(2)}
-            className={`md:w-32 md:h-32 transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer group ${
+            className={`md:w-32 md:h-32 transition-transform duration-1000 [transform-style:preserve-3d] cursor-pointer group ${
               flippedIndex === 2 ? "[transform:rotateY(180deg)]" : ""
             }`}
           >
-            <div className="w-full h-full transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
+            <div className="w-full h-full transition-transform duration-1000 group-hover:[transform:rotateY(180deg)]">
             <Image
               src="/assets/icons/Icon_128x_Support.png"
               alt="Support"
