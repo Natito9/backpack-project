@@ -30,9 +30,6 @@ export default function Footer({ onShowUnderConstruction }) {
                 style={{ height: "auto" }}
               />
             </a>
-            <p className={paragraphClass}>
-              Supporting children's emotional growth through play and connection.
-            </p>
           </div>
 
           {/* Quick Links */}
