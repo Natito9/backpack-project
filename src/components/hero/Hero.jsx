@@ -41,9 +41,7 @@ export default function Hero() {
           setShowFacts(false);
         }}
       />
-
       <Title />
-
       <Image
         src="/assets/images/hero-background.jpg"
         alt="Background"
@@ -72,7 +70,7 @@ export default function Hero() {
       )}
 
       {!showFacts && (
-        <>
+       <>
           <div className="absolute inset-0 flex justify-center items-start md:mt-30 mt-25 p-5">
             <Image
               src="/assets/images/hero-logo.png"
@@ -82,9 +80,10 @@ export default function Hero() {
               className="h-auto [@media(max-height:675px)]:max-w-[70vh] lg:max-w-[70vh] md:max-w-[60vh]"
             />
           </div>
-            <ChatBubble />
-            <Emmo />
-        </>
+          <ChatBubble />
+          <Emmo />
+          </>
+   
       )}
     </section>
   );
