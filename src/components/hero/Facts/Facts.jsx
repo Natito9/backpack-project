@@ -3,7 +3,7 @@ import ScrumbleFacts from './ScrumbleFacts';
 import PhrasesFacts from './PhrasesFacts';
 
 export default function Facts({ onDone }) {
-  const [phase, setPhase] = useState('scramble'); // 'scramble' → 'phrases'
+  const [phase, setPhase] = useState('scramble'); 
 
   return (
     <>

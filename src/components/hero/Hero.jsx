@@ -55,7 +55,7 @@ export default function Hero() {
         />
         {!animationCompleteed && (
           <ProgressBar
-            duration={21000}
+            duration={20000}
             onComplete={handleAnimationComplete}
           />
         )}

@@ -99,7 +99,7 @@ export default function ScrumbleFacts({ onDone }) {
       });
     };
 
-    setTimeout(next, 1000);
+    setTimeout(next, 2600);
   }, [onDone]);
 
   return (
