@@ -1,16 +1,31 @@
 describe('Backpack Studios Homepage', () => {
-  it('loads successfully and displays the main sections', () => {
+  beforeEach(() => {
     cy.visit('https://backpack-studios.vercel.app/');
+  });
 
-    // Navbar and footer are usually visible
+  it('displays key UI sections correctly', () => {
+    // Check essential always-visible elements
     cy.get('nav').should('be.visible');
     cy.get('footer').should('be.visible');
 
-    // Scroll to "Our Mission" and "Meet Emmo" before asserting visibility
-    cy.contains('Our Mission').scrollIntoView().should('be.visible');
-    cy.contains('Meet Emmo').scrollIntoView().should('be.visible');
+    // Scroll and check hero section
+    cy.get('#hero').scrollIntoView().should('be.visible');
+    cy.contains(/Backpack Studios/i).should('exist');
+
+    // Scroll to and verify "Our Mission"
+    cy.get('#mission').scrollIntoView().should('be.visible');
+    cy.contains(/Our Mission/i).should('be.visible');
+
+    // Scroll to and verify "Features" section
+    cy.get('#features').scrollIntoView().should('be.visible');
+    cy.contains(/Features/i).should('be.visible');
+
+    // Scroll to and verify "Meet Emmo"
+    cy.get('#emmo').scrollIntoView().should('be.visible');
+    cy.contains(/Meet Emmo/i).should('be.visible');
+
+    // Scroll to and verify "Contact"
+    cy.get('#contact').scrollIntoView().should('be.visible');
+    cy.contains(/Get in Touch/i).should('be.visible');
   });
 });
- 
-
-//304 Not Modified is a standard HTTP response indicating that the browser can use a cached copy of a resource (like an image, CSS, or JS file)
