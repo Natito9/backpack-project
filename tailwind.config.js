@@ -28,15 +28,6 @@ module.exports = {
         content: "20px",
         subtitle: "36px",
       },
-      keyframes: {
-        zoomIn: {
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.05)" },
-        },
-      },
-      animation: {
-        zoomIn: "zoomIn 3s ease-out forwards",
-      },
     },
   },
   plugins: [],
