@@ -5,7 +5,6 @@ import Image from "next/image";
 import Emmo from "./Emmo";
 import Title from "./Title";
 import ChatBubble from "./ChatBubble";
-import SkipBtn from "./SkipBtn";
 import ProgressBar from "./probar";
 import Facts from "./Facts/Facts";
 
@@ -14,7 +13,8 @@ export default function Hero() {
   const [phase, setPhase] = useState("hidden");
   const [animationCompleteed, setAnimationCompleted] = useState(false);
   const [showProgressBar, setShowProgressBar] = useState(true);
-  const [showSkipBtn, setShowSkipBtn] = useState(true); // Track the visibility of the SkipBtn
+  const [showSkipBtn, setShowSkipBtn] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   const handleAnimationComplete = () => {
     setAnimationCompleted(true);
@@ -24,33 +24,41 @@ export default function Hero() {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Run animation only when showFacts becomes false
     if (!showFacts) {
       const timer = setTimeout(() => setAnimate(true), 100);
       return () => clearTimeout(timer);
     }
   }, [showFacts]);
 
-  // Function to hide the SkipBtn when clicked
   const handleSkipClick = () => {
-    setPhase("done");
-    setShowFacts(false);
-    setShowSkipBtn(false); // Hide the SkipBtn immediately when clicked
+    setIsFadingOut(true);
+    setTimeout(() => {
+      setShowSkipBtn(false);
+      setPhase("done");
+      setShowFacts(false);
+    }, 300); // match fade duration
   };
 
   return (
     <section
       id="hero"
-      className="relative  h-screen max-[500px] md:h-[100vh] w-full"
+      className="relative h-screen max-[500px] md:h-[100vh] w-full"
     >
-      {/* Skip Button */}
+      {/* Inline Skip Button with fade-out transition */}
       {showSkipBtn && (
-        <SkipBtn
-          onClick={handleSkipClick} // Call the function to hide the button
-        />
+        <button
+          onClick={handleSkipClick}
+          className={`fixed bottom-6 right-20 z-50 bg-white text-black p-3 rounded-full shadow-md hover:bg-gray-200 transition-opacity duration-300 ${
+            isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+          aria-label="Skip Facts"
+        >
+          Skip
+        </button>
       )}
 
-      <Title />
+      {/* Only show Title during the Facts phase */}
+      {showFacts && <Title />}
 
       <Image
         src="/assets/images/hero-background.jpg"
@@ -60,6 +68,7 @@ export default function Hero() {
         priority
         className="object-cover object-center -z-10"
       />
+
       {showFacts && (
         <>
           <Facts onDone={() => setShowFacts(false)} />
