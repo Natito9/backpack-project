@@ -6,7 +6,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="flex flex-col items-center justify-center px-10 py-12 gap-12 bg-no-repeat bg-cover"
+      className="flex flex-col items-center justify-center px-4 py-12 gap-12 bg-no-repeat bg-cover"
       style={{
         backgroundImage: "url('/assets/images/BACKGROUND_WEBSITE_POLY.png')",
       }}
@@ -60,7 +60,7 @@ export default function Features() {
         </div>
 
         {/* Image Section */}
-        <div className="w-full lg:w-1/2 flex justify-center">
+        <div className="w-[90%] lg:w-1/2 md:w-1/2 flex justify-center">
           <Image
             src="/assets/images/appImage.png"
             alt="App preview"
