@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Emmo() {
   return (
     <div
-      className="w-[25vh] md:w-[30vh] lg:w-[30vh] max-w-[300px] right-50 lg:top-20 lg:right-65 lg:translate-x-40 lg:-translate-y-5
+      className="w-[25vh] md:w-[30vh] lg:w-[40vh] max-w-[500px] right-50 lg:top-20 lg:right-65 lg:translate-x-40 lg:-translate-y-5
     
     // Default positioning
       translate-x-0 translate-y-0
@@ -18,8 +18,8 @@ export default function Emmo() {
         src="/assets/images/hero-emmo.png"
         alt="Emmo character"
         priority
-        width={300}
-        height={300}
+        width={500}
+        height={500}
         className="w-full h-auto object-contain"
       />
     </div>

@@ -11,7 +11,9 @@ export default function Features() {
         backgroundImage: "url('/assets/images/BACKGROUND_WEBSITE_POLY.png')",
       }}
     >
-      <h2 className="text-3xl font-bold text-center">How Backpack Works</h2>
+      <h2 className="text-(length:--subtitle-font-size) leading-(--subtitle-line-height) text-center">
+        How Backpack Works
+      </h2>
 
       <div className="flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl w-full">
         {/* Text Section */}
