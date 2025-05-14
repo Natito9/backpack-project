@@ -12,7 +12,7 @@ export default function Title({ onDone = () => {} }) {
       if (typeof onDone === "function") {
         onDone(); // notify parent
       }
-    }, 2000); // 1s delay + 1s animation
+    }, 3000); // 1s delay + 1s animation
 
     return () => clearTimeout(timer);
   }, [onDone]);
@@ -31,7 +31,7 @@ export default function Title({ onDone = () => {} }) {
               max-w-[600px]
               animate__animated
               animate__zoomOut
-              animate__delay-1s
+              animate__delay-2s
               animate__slow
               h-auto
             "
