@@ -17,15 +17,14 @@ export default function PhrasesFacts({ onDone }) {
       return;
     }
 
-    // Start with zoomIn
-    setAnimationClass("animate__animated animate__slower animate__zoomInGentle");
+    setAnimationClass(
+      "animate__animated animate__slower animate__zoomInGentle"
+    );
 
-    // Trigger fadeOut after a bit
     const fadeTimer = setTimeout(() => {
       setAnimationClass("animate__animated animate__fadeOut");
     }, 2800);
 
-    // Advance phrase
     const advance = setTimeout(() => {
       setCurrentIndex((prev) => prev + 1);
     }, 3500);
