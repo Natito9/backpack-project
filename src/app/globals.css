@@ -52,7 +52,7 @@
   animation-fill-mode: both;
 }
 
-@media (max-height: 500px) {
+@media (max-height: 600px) {
   .hide-on-small-height {
     display: none;
   }

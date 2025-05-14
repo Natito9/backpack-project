@@ -82,16 +82,8 @@ export default function Hero() {
               className="h-auto [@media(max-height:675px)]:max-w-[70vh] lg:max-w-[70vh] md:max-w-[60vh]"
             />
           </div>
-
-          <section
-            className={`absolute inset-0 flex flex-col items-center justify-end pb-[10vh] z-10 pointer-events-none
-            transition-all duration-[3500ms] ease-out
-            ${animate ? "opacity-100" : "opacity-0"}
-            `}
-          >
             <ChatBubble />
             <Emmo />
-          </section>
         </>
       )}
     </section>
