@@ -1,16 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-export default function Facts() {
+export default function ScrumbleFacts({ onDone }) {
   const el = useRef(null);
   const [isClient, setIsClient] = useState(false);
+  const [zoom, setZoom] = useState(false);
 
   useEffect(() => {
+    if (!el.current) return;
     setIsClient(true);
 
     class TextScramble {
       constructor(el) {
         this.el = el;
-        this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         this.update = this.update.bind(this);
       }
 
@@ -21,10 +23,10 @@ export default function Facts() {
         this.queue = [];
 
         for (let i = 0; i < length; i++) {
-          const from = oldText[i] || '';
-          const to = newText[i] || '';
-          const start = i * 2 + Math.floor(Math.random() * 10);
-          const end = start + 20 + Math.floor(Math.random() * 15);
+          const from = oldText[i] || "";
+          const to = newText[i] || "";
+          const start = i * 2 + Math.floor(Math.random() * 20);
+          const end = start + 20 + Math.floor(Math.random() * 35);
           this.queue.push({ from, to, start, end });
         }
 
@@ -35,7 +37,7 @@ export default function Facts() {
       }
 
       update() {
-        let output = '';
+        let output = "";
         let complete = 0;
 
         for (let i = 0, n = this.queue.length; i < n; i++) {
@@ -49,7 +51,7 @@ export default function Facts() {
               char = this.randomChar();
               this.queue[i].char = char;
             }
-            output += `<span class=" text-amber-900 opacity-80">${char}</span>`;
+            output += `<span class=" text-amber-950 opacity-80">${char}</span>`;
           } else {
             output += from;
           }
@@ -58,13 +60,12 @@ export default function Facts() {
         this.el.innerHTML = output;
 
         if (complete === this.queue.length) {
-            this.resolve();
-          } else {
-            // Speed up the frame request to make the scramble happen faster
-            this.frameRequest = requestAnimationFrame(this.update);
-            this.frame++;
-          }
+          this.resolve();
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update);
+          this.frame++;
         }
+      }
 
       randomChar() {
         return this.chars[Math.floor(Math.random() * this.chars.length)];
@@ -72,33 +73,42 @@ export default function Facts() {
     }
 
     const phrases = [
-      '6 HOURS A DAY',
-      '3 MONTHS A YEAR',
-      '20 YEARS IN A LIFETIME',
-      'THIS IS THE AVERAGE PRIVATE SCREENTIME OF SWEDISH TEENAGERS TODAY.',
-      'WE ARE NOT HERE TO WARN.',
-      'WE ARE HERE TO ACT.',
-      'AND THAT ACTION IS BACKPACK.',
+      "6 HOURS A DAY",
+      "3 MONTHS A YEAR",
+      "20 YEARS IN A LIFETIME",
     ];
 
     const fx = new TextScramble(el.current);
     let counter = 0;
 
     const next = () => {
+      setZoom(false);
       fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 3500);
+        setZoom(true);
+
+        if (counter < phrases.length - 1) {
+          setTimeout(() => {
+            counter++;
+            next();
+          }, 1200);
+        } else {
+          setTimeout(() => {
+            onDone?.();
+          }, 2000);
+        }
       });
-      counter = (counter + 1) % phrases.length;
     };
 
-    next();
-  }, []);
+    setTimeout(next, 1000);
+  }, [onDone]);
 
   return (
     <div className="flex justify-center items-center h-full w-full px-4">
       <div
         ref={el}
-        className={`text-2xl md:text-6xl text-center font-bold text-amber-700 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden ${isClient ? '' : 'opacity-0'}`}
+        className={`text-2xl md:text-6xl text-center font-bold text-amber-950 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden transition-transform duration-[2800ms] ease-out transform ${
+          zoom ? "scale-105" : "scale-100"
+        } ${isClient ? "" : "opacity-0"}`}
       ></div>
     </div>
   );

@@ -4,7 +4,7 @@ export default function Mission() {
   return (
     <section
       id="mission"
-      className="flex flex-col justify-center items-center py-10 px-5 md:py-20"
+      className="flex flex-col justify-center items-center py-10 px-4 md:py-20"
     >
       <h2 className="text-(length:--subtitle-font-size) leading-(--subtitle-line-height)  pb-7">
         Our Mission

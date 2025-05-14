@@ -5,7 +5,9 @@ import { useState } from "react";
 import Title from "./Title";
 import ChatBubble from "./ChatBubble";
 import SkipBtn from "./SkipBtn";
-import ProgressBar from "./probar";import Facts from "./Facts";
+import ProgressBar from "./probar";
+import Facts from "./Facts/Facts";
+
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
@@ -30,7 +32,7 @@ export default function Hero() {
         }}
       />
 
-      {/* <Title /> */}
+      <Title />
 
       <Image
         src="/assets/images/hero-background.jpg"
@@ -43,15 +45,8 @@ export default function Hero() {
       {showFacts && (
         <>
 
-        <FactCards 
-          phase={phase} 
-          setPhase={setPhase} 
-          onDone={() => setShowFacts(false)} 
-        />
-        <FactCaption phase={phase} onDone={() => {
-          setPhase("done");
-          setShowFacts(false);
-        }} />
+  <Facts onDone={() => setShowFacts(false)} />
+  
         <SkipBtn
           onClick={() => {
             setPhase("done");
