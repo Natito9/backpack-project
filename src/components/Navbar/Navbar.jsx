@@ -36,11 +36,7 @@ export default function Navbar() {
               <a
                 key={target}
                 href={`#${target}`}
-                className="text-text-color hover:text-main transition font-content"
-                style={{
-                  fontSize: "var(--navbar-font-size)",
-                  lineHeight: "var(--navbar-line-height)",
-                }}
+                className="text-text-color hover:text-main transition font-content text-navbar leading-navbar"
               >
                 {label}
               </a>
@@ -73,11 +69,7 @@ export default function Navbar() {
               <a
                 key={target}
                 href={`#${target}`}
-                className="text-text-color hover:text-main transition border-b border-gray-100 font-content pb-1"
-                style={{
-                  fontSize: "var(--navbar-font-size)",
-                  lineHeight: "var(--navbar-line-height)",
-                }}
+                className="text-text-color hover:text-main transition border-b border-gray-100 font-content pb-1 text-navbar leading-navbar"
                 onClick={toggleMenu}
               >
                 {label}
