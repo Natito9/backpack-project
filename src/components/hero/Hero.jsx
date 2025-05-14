@@ -57,6 +57,7 @@ export default function Hero() {
         </button>
       )}
 
+
       {/* Only show Title during the Facts phase */}
       {showFacts && <Title />}
 
