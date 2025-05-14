@@ -85,7 +85,7 @@ export default function Hero() {
 
       {!showFacts && (
        <>
-       <div className="absolute inset-0 flex justify-center items-start mt-30 p-5 z-20">
+       <div className="absolute inset-0 flex justify-center items-start mt-30 p-5 z-20 animate__animated animate__fadeIn animate__slow">
   <div className="w-[300px] md:w-[400px]">
     <Image
       src="/assets/images/hero-logo.png"
