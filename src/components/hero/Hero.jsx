@@ -1,19 +1,20 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Emmo from "./Emmo";
-import {useState} from "react";
 import Title from "./Title";
 import ChatBubble from "./ChatBubble";
 import SkipBtn from "./SkipBtn";
 import ProgressBar from "./probar";
 import Facts from "./Facts/Facts";
-import {useEffect} from "react";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
   const [phase, setPhase] = useState("hidden");
   const [animationCompleteed, setAnimationCompleted] = useState(false);
   const [showProgressBar, setShowProgressBar] = useState(true);
+  const [showSkipBtn, setShowSkipBtn] = useState(true); // Track the visibility of the SkipBtn
 
   const handleAnimationComplete = () => {
     setAnimationCompleted(true);
@@ -30,17 +31,24 @@ export default function Hero() {
     }
   }, [showFacts]);
 
+  // Function to hide the SkipBtn when clicked
+  const handleSkipClick = () => {
+    setPhase("done");
+    setShowFacts(false);
+    setShowSkipBtn(false); // Hide the SkipBtn immediately when clicked
+  };
+
   return (
     <section
       id="hero"
       className="relative  h-screen max-[500px] md:h-[100vh] w-full"
     >
-      <SkipBtn
-        onClick={() => {
-          setPhase("done");
-          setShowFacts(false);
-        }}
-      />
+      {/* Skip Button */}
+      {showSkipBtn && (
+        <SkipBtn
+          onClick={handleSkipClick} // Call the function to hide the button
+        />
+      )}
 
       <Title />
 
@@ -56,16 +64,10 @@ export default function Hero() {
         <>
           <Facts onDone={() => setShowFacts(false)} />
 
-          <SkipBtn
-            onClick={() => {
-              setPhase("done");
-              setShowFacts(false);
-            }}
-          />
           {!animationCompleteed && (
             <ProgressBar
               duration={20000}
-              onComplete={handleAnimationComplete}
+              onComplete={() => setAnimationCompleted(true)}
             />
           )}
         </>
