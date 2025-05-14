@@ -2,26 +2,23 @@ import Image from "next/image";
 
 export default function Emmo() {
   return (
-    <div
-      className="w-[25vh] md:w-[30vh] lg:w-[40vh] max-w-[500px] right-50 lg:top-20 lg:right-65 lg:translate-x-40 lg:-translate-y-5
-    
-    // Default positioning
-      translate-x-0 translate-y-0
-
-      // Landscape and medium screen adjustments
-      md:translate-x-30 md:translate-y-10 
-
-      // Apply left translation when height is smaller than 675px (converted to vh)
-      [@media(max-height:675px)]:translate-x-10 [@media(max-height:675px)]:-translate-y-0 [@media(max-height:675px)]:lg:-translate-y-0 @media(max-height:675px)]:lg:translate-x-2"
-    >
-      <Image
-        src="/assets/images/hero-emmo.png"
-        alt="Emmo character"
-        priority
-        width={500}
-        height={500}
-        className="w-full h-auto object-contain"
-      />
+    <div className="absolute h-screen w-full ">
+        <div className="relative bottom-[45%] left-[25%] md:bottom-[50%] lg:bottom-[45%] md:left-[50%] xl:bottom-[53%] xl:left-[53%] w-[260px] sm:w-[200px] md:w-[300px] lg:w-[270px] xl:w-[370px] aspect-[1/1] animate-pulse [animation-duration:5.5s] transition-all duration-1000 ease-in-out z-60 overflow-hidden"
+            style={{
+              '@media (orientation: landscape) and (max-width: 767px)': {
+                width: '150px',
+                bottom: '40%',
+              }
+            }}
+        >
+          <Image
+            src="/assets/images/hero-emmo.png"
+            alt="Emmo character"
+            fill
+            priority
+            className="object-contain transition-all duration-300 ease-in-out overflow-hidden"
+          />
+        </div>
     </div>
   );
 }
