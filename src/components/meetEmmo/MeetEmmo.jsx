@@ -18,23 +18,25 @@ const MeetEmmo = () => {
       </div>
 
       <div className="w-full md:w-1/2 space-y-6 flex flex-col justify-center">
-        <h2 className="text-(length:--title-font-size) md:text-[60px] md:leading-[60px] text-center md:text-left leading-title font-(family-name:--title-font-family)">
+        <h2 className="text-(length:--subtitle-font-size) md:leading-[60px] text-center md:text-left leading-title font-(family-name:--title-font-family)">
           Meet Emmo
         </h2>
 
-        <p className="text-(length:--content-font-size) md:text-[20px] leading-[24px] md:leading-[28px] font-(family-name:--title-font-family) w-full text-justify hyphens-auto">
-        Emmo is the antidote to all the negatively conditioning algorithms that target children today. That turns them into infinity scrollers. Causes gaming addiction. Harms their self image and makes them go Emmo does not substitute a parent, a friend or functions like a tamagotchi. You don't have to feed Emmo and will not be invited to check on the Mascot when you are off the phone. Emmo helps the children learn about themselves, their emotions and behaviours. So that they can independently with old a healthy relationship to digital world in the future.after instant dopamine kicks.Emmo is the gatekeeper that creates space for emotional growth, an active lifestyle, a solid self esteem and understanding the importance of boundries as the children grow. Space that now is eaten up by screen time. 
+        <p className="font-(family-name:--title-font-family) text-justify text-[#3f3f3f]">
+          Emmo is here to protect kids from the pull of addictive algorithms - the kind that fuel endless scrolling, gaming loops, and low self-worth.
+          <br />Emmo isn't a toy, a pet, or a digital friend. It's a gentle guide that helps kids understand their feelings, habits, and needs - and build self-regulation from within.
+          <br />By creating space for movement, confidence, and emotional growth, Emmo supports the skills children need to stay balanced in a digital world.        
         </p>
 
         <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
           <span className="bg-(--main-color) text-(--text-color) px-6 py-2 rounded-full text-(length:--button-font-size) md:text-[16px] font-(family-name:--content-font-family)">
-            Friendly
+            Awareness
           </span>
           <span className="bg-(--main-color) text-(--text-color) px-6 py-2 rounded-full text-(length:--button-font-size) md:text-[16px] font-(family-name:--content-font-family)">
-            Supportive
+            Balance
           </span>
           <span className="bg-(--main-color) text-(--text-color) px-6 py-2 rounded-full text-(length:--button-font-size) md:text-[16px] font-(family-name:--content-font-family)">
-            Playful
+            Confidence
           </span>
         </div>
       </div>
