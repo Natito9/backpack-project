@@ -99,7 +99,7 @@ Want to explore more about Next.js? Check out these helpful resources:
 
 * [Learn Next.js](https://nextjs.org/learn)– A free, interactive tutorial for beginners
 
-* [Next.js GitHub](https://github.com/vercel/next.js) Repository – Share feedback, contribute, or browse the source code
+* [Next.js GitHub Repository](https://github.com/vercel/next.js) – Share feedback, contribute, or browse the source code
 
 ## Deployment
 The recommended way to deploy this application is through [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme), the platform created by the team behind Next.js. It offers seamless integration, zero-config deployments, and optimized performance for Next.js projects.  
