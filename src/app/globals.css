@@ -51,3 +51,9 @@
   animation-duration: 2s;
   animation-fill-mode: both;
 }
+
+@media (max-height: 500px) {
+  .hide-on-small-height {
+    display: none;
+  }
+}
