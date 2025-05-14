@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import Emmo from "./Emmo";
-import { useState } from "react";
+import {useState} from "react";
 import Title from "./Title";
 import ChatBubble from "./ChatBubble";
 import SkipBtn from "./SkipBtn";
 import ProgressBar from "./probar";
 import Facts from "./Facts/Facts";
-
+import {useEffect} from "react";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
@@ -18,13 +18,23 @@ export default function Hero() {
   const handleAnimationComplete = () => {
     setAnimationCompleted(true);
     setShowProgressBar(false);
-  }
+  };
+
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    // Run animation only when showFacts becomes false
+    if (!showFacts) {
+      const timer = setTimeout(() => setAnimate(true), 100);
+      return () => clearTimeout(timer);
+    }
+  }, [showFacts]);
+
   return (
     <section
       id="hero"
       className="relative  h-screen max-[500px] md:h-[100vh] w-full"
     >
-     
       <SkipBtn
         onClick={() => {
           setPhase("done");
@@ -44,21 +54,20 @@ export default function Hero() {
       />
       {showFacts && (
         <>
+          <Facts onDone={() => setShowFacts(false)} />
 
-  <Facts onDone={() => setShowFacts(false)} />
-  
-        <SkipBtn
-          onClick={() => {
-            setPhase("done");
-            setShowFacts(false);
-          }}
-        />
-        {!animationCompleteed && (
-          <ProgressBar
-            duration={20000}
-            onComplete={handleAnimationComplete}
+          <SkipBtn
+            onClick={() => {
+              setPhase("done");
+              setShowFacts(false);
+            }}
           />
-        )}
+          {!animationCompleteed && (
+            <ProgressBar
+              duration={20000}
+              onComplete={handleAnimationComplete}
+            />
+          )}
         </>
       )}
 
@@ -74,10 +83,15 @@ export default function Hero() {
             />
           </div>
 
-          <div className="flex flex-col items-center ">
+          <section
+            className={`absolute inset-0 flex flex-col items-center justify-end pb-[10vh] z-10 pointer-events-none
+            transition-all duration-[3500ms] ease-out
+            ${animate ? "opacity-100" : "opacity-0"}
+            `}
+          >
             <ChatBubble />
             <Emmo />
-          </div>
+          </section>
         </>
       )}
     </section>
