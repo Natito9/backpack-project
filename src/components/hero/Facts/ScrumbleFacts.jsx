@@ -51,7 +51,7 @@ export default function ScrumbleFacts({ onDone }) {
               char = this.randomChar();
               this.queue[i].char = char;
             }
-            output += `<span class=" text-amber-950 opacity-80">${char}</span>`;
+            output += `<span class=" text-neutral-600 opacity-80">${char}</span>`;
           } else {
             output += from;
           }
@@ -106,7 +106,7 @@ export default function ScrumbleFacts({ onDone }) {
     <div className="flex justify-center items-center h-full w-full px-4">
       <div
         ref={el}
-        className={`text-2xl md:text-6xl text-center font-bold text-amber-950 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden transition-transform duration-[2800ms] ease-out transform ${
+        className={`text-4xl md:text-6xl text-center font-bold text-neutral-600 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl overflow-hidden transition-transform duration-[2800ms] ease-out transform ${
           zoom ? "scale-105" : "scale-100"
         } ${isClient ? "" : "opacity-0"}`}
       ></div>
