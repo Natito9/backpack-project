@@ -17,18 +17,23 @@ export default function Navbar() {
             <Image
               src="/assets/images/hero-logo.png"
               alt="Backpack Studios logo"
-              width={140}
+              width={220}
               height={50}
+              style={{ height: "auto" }}
             />
           </a>
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            {["hero", "features", "emmo", "contact"].map((item) => (
+            {["home", "features", "emmo", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
-                className="text-text-color hover:text-main transition font-content text-navbar leading-navbar"
+                className="text-text-color hover:text-main transition font-content"
+                style={{
+                  fontSize: "var(--navbar-font-size)",
+                  lineHeight: "var(--navbar-line-height)",
+                }}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
               </a>
@@ -61,7 +66,11 @@ export default function Navbar() {
               <a
                 key={item}
                 href={`#${item}`}
-                className="text-text-color hover:text-main transition border-b border-gray-100 text-navbar leading-navbar font-content pb-1"
+                className="text-text-color hover:text-main transition border-b border-gray-100 font-content pb-1"
+                style={{
+                  fontSize: "var(--navbar-font-size)",
+                  lineHeight: "var(--navbar-line-height)",
+                }}
                 onClick={toggleMenu}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
