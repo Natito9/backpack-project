@@ -5,7 +5,7 @@ export default function ChatBubble() {
   return (
     <section className="relative h-screen">
       <div
-        className="absolute top-[45%] left-[40%] md:top-[55%] md:left-[32%] lg:top-[50%] lg:left-[43%] -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-300 ease-in-out hide-on-small-height animate__animated animate__fadeIn animate__slow"
+        className="absolute top-[45%] left-[40%] md:top-[55%] md:left-[32%] lg:top-[50%] lg:left-[43%] -translate-x-1/2 -translate-y-1/2 z-40 transition-all duration-300 ease-in-out hide-on-small-height animate__animated animate__fadeIn animate__slow"
         style={{
           "@media (orientation: landscape) and (max-width: 767px)": {
             top: "70%",
