@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Emmo from "./Emmo";
 import Title from "./Title";
@@ -10,31 +10,13 @@ import Facts from "./Facts/Facts";
 
 export default function Hero() {
   const [showFacts, setShowFacts] = useState(true);
-  const [phase, setPhase] = useState("hidden");
-  const [animationCompleteed, setAnimationCompleted] = useState(false);
-  const [showProgressBar, setShowProgressBar] = useState(true);
   const [showSkipBtn, setShowSkipBtn] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
-
-  const handleAnimationComplete = () => {
-    setAnimationCompleted(true);
-    setShowProgressBar(false);
-  };
-
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    if (!showFacts) {
-      const timer = setTimeout(() => setAnimate(true), 100);
-      return () => clearTimeout(timer);
-    }
-  }, [showFacts]);
 
   const handleSkipClick = () => {
     setIsFadingOut(true);
     setTimeout(() => {
       setShowSkipBtn(false);
-      setPhase("done");
       setShowFacts(false);
     }, 300); // match fade duration
   };
@@ -57,8 +39,6 @@ export default function Hero() {
         </button>
       )}
 
-
-      {/* Only show Title during the Facts phase */}
       {showFacts && <Title />}
 
       <Image
@@ -73,34 +53,27 @@ export default function Hero() {
       {showFacts && (
         <>
           <Facts onDone={() => setShowFacts(false)} />
-
-          {!animationCompleteed && (
-            <ProgressBar
-              duration={20000}
-              onComplete={() => setAnimationCompleted(true)}
-            />
-          )}
+          <ProgressBar duration={23000} />
         </>
       )}
 
       {!showFacts && (
-       <>
-       <div className="absolute inset-0 flex justify-center items-start mt-30 p-5 z-20 animate__animated animate__fadeIn animate__slow">
-  <div className="w-[300px] md:w-[400px]">
-    <Image
-      src="/assets/images/hero-logo.png"
-      alt="Backpack Studios logo"
-      width={600}
-      height={200}
-      priority
-      className="w-full h-auto transition-opacity duration-500"
-    />
-  </div>
-</div>
+        <>
+          <div className="absolute inset-0 flex justify-center items-start mt-30 p-5 z-20 animate__animated animate__fadeIn animate__slow">
+            <div className="w-[300px] md:w-[400px]">
+              <Image
+                src="/assets/images/hero-logo.png"
+                alt="Backpack Studios logo"
+                width={600}
+                height={200}
+                priority
+                className="w-full h-auto transition-opacity duration-500"
+              />
+            </div>
+          </div>
           <ChatBubble />
           <Emmo />
-          </>
-   
+        </>
       )}
     </section>
   );
