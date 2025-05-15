@@ -12,6 +12,7 @@ export default function Emmo() {
               }
             }}
         >
+          {/* new emmo name */}
           <Image
              src="/assets/images/emmo.png"
             alt="Emmo character"
