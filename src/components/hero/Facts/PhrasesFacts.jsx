@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "animate.css";
 
 export default function PhrasesFacts({ onDone }) {
@@ -10,58 +10,64 @@ export default function PhrasesFacts({ onDone }) {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationClass, setAnimationClass] = useState("");
-  const [showText, setShowText] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // controls visibility
+  const phraseRef = useRef(null);
 
   useEffect(() => {
     if (currentIndex >= phrases.length) {
-      // Do not render anything once done
       onDone?.();
       return;
     }
 
-    setShowText(false); // Hide text
+    // Step 1: hide text immediately
+    setIsVisible(false);
+    setAnimationClass("");
 
-    const applyAnimation = setTimeout(() => {
-      void document.body.offsetHeight; // Force reflow
-      setAnimationClass(
-        "animate__animated animate__slower animate__zoomInGentle"
-      );
-      setShowText(true);
+    // Step 2: after short delay, show text and apply zoomInGentle animation
+    const showTimeout = setTimeout(() => {
+      setIsVisible(true);
+      setAnimationClass("animate__animated animate__slower animate__zoomInGentle");
     }, 50);
 
-    const fadeTimer = setTimeout(() => {
-      setAnimationClass("animate__animated animate__fadeOut");
-    }, 2800);
+    const el = phraseRef.current;
 
-    const advance = setTimeout(() => {
-      setCurrentIndex((prev) => prev + 1);
-    }, 3500);
+    // Handler for animationend events
+    const handleAnimationEnd = (e) => {
+      if (e.animationName.includes("zoomInGentle")) {
+        // After zoomIn ends, start fadeOut
+        setAnimationClass("animate__animated animate__fadeOut");
+      } else if (e.animationName.includes("fadeOut")) {
+        // After fadeOut ends, move to next phrase
+        setCurrentIndex((prev) => prev + 1);
+      }
+    };
+
+    if (el) {
+      el.addEventListener("animationend", handleAnimationEnd);
+    }
 
     return () => {
-      clearTimeout(applyAnimation);
-      clearTimeout(fadeTimer);
-      clearTimeout(advance);
+      clearTimeout(showTimeout);
+      if (el) {
+        el.removeEventListener("animationend", handleAnimationEnd);
+      }
     };
   }, [currentIndex, onDone]);
 
- 
   if (currentIndex >= phrases.length) {
-    // Let the final fadeOut complete before unmounting
-    const doneTimer = setTimeout(() => {
-      onDone?.();
-    }, 200); // 200ms delay prevents jump/glitch
-  
-    return () => clearTimeout(doneTimer);
+    return null;
   }
 
   return (
     <div className="flex justify-center items-center h-full w-full px-4">
       <div
         key={currentIndex}
-        className={`text-3xl md:text-5xl text-center text-bold text-neutral-600 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl ${animationClass}`}
+        ref={phraseRef}
+        className={`text-3xl md:text-5xl text-center font-bold text-neutral-600 max-w-full min-h-[4.5rem] md:min-h-[6.5rem] sm:max-w-2xs md:max-w-2xl lg:max-w-3xl ${animationClass}`}
+        style={{ visibility: isVisible ? "visible" : "hidden" }}
       >
-        {showText ? phrases[currentIndex] : ""}
+        {phrases[currentIndex]}
       </div>
     </div>
-  )
+  );
 }
