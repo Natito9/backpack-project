@@ -13,7 +13,7 @@ export default function Emmo() {
             }}
         >
           <Image
-            src="/assets/images/hero-emmo.png"
+            src="/assets/images/Emmo.png"
             alt="Emmo character"
             fill
             priority
