@@ -25,7 +25,7 @@ export default function Features() {
               desc: "Backpack is an app best suited for children aged 7-10 and is meant to be implemented on their first phone.",
             },
             {
-              src: "/assets/images/Icon_128x_mascot.png",
+              src: "/assets/icons/Icon_128x_Mascot2.png",
               title: "Personalised mascot",
               desc: "The star of the app is a personalised mascot named Emmo, who supports the child in real-time on the phone.",
             },
